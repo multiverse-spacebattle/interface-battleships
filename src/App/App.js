@@ -23,7 +23,7 @@ function App() {
   const [, switchNetwork] = useNetwork();
 
   return (
-    <div>
+    <div className="px-48">
       {address ? (
         <>
           <button onClick={disconnectWallet}>Disconnect Wallet</button>

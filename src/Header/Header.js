@@ -2,17 +2,17 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <div className="flex flex-row w-full border border-black justify-center h-24 items-center">
-      <Link className="w-1/4" to={"/attack"}>
+    <div className="flex flex-row w-full border border-black items-center h-24">
+      <Link className="w-1/4 border border-black text-center" to={"/attack"}>
         Attack
       </Link>
-      <Link className="w-1/4" to={"/mining"}>
+      <Link className="w-1/4 border border-black text-center" to={"/mining"}>
         Mining
       </Link>
-      <Link className="w-1/4" to={"/upgrade"}>
+      <Link className="w-1/4 border border-black text-center" to={"/upgrade"}>
         Upgrade
       </Link>
-      <Link className="w-1/4" to={"/traverse"}>
+      <Link className="w-1/4 border border-black text-center" to={"/traverse"}>
         Traverse
       </Link>
     </div>

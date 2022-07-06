@@ -1,6 +1,6 @@
 function Traverse() {
   return (
-    <div className="flex flex-col w-full px-48 ">
+    <div className="flex flex-col w-full ">
       <div className="flex flex-row">
         <div className="w-full h-96 border border-black">Map</div>
       </div>

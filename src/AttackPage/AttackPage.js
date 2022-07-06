@@ -1,6 +1,6 @@
 function AttackPage() {
   return (
-    <div className="flex flex-col w-full px-48 ">
+    <div className="flex flex-col w-full ">
       <div className="flex flex-row w-full border border-black h-96">
         <div className="flex flex-col w-3/4 border border-black h-full">
           ENEMIES
