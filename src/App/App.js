@@ -26,15 +26,32 @@ function App() {
     <div className="px-48">
       {address ? (
         <>
-          <button onClick={disconnectWallet}>Disconnect Wallet</button>
+          <button className="border black-border" onClick={disconnectWallet}>
+            Disconnect Wallet
+          </button>
           <p>Your address: {address}</p>
-          <button onClick={() => switchNetwork(ChainId.Mumbai)}>
+          <button
+            className="border black-border"
+            onClick={() => switchNetwork(ChainId.Mainnet)}
+          >
+            Switch To Ethereum
+          </button>
+          <button
+            className="border black-border"
+            onClick={() => switchNetwork(ChainId.Mumbai)}
+          >
             Switch To Mumbai
           </button>
-          <button onClick={() => switchNetwork(ChainId.FantomTestnet)}>
+          <button
+            className="border black-border"
+            onClick={() => switchNetwork(ChainId.FantomTestnet)}
+          >
             Switch To FantomTestnet
           </button>
-          <button onClick={() => switchNetwork(ChainId.AvalancheFujiTestnet)}>
+          <button
+            className="border black-border"
+            onClick={() => switchNetwork(ChainId.AvalancheFujiTestnet)}
+          >
             Switch To AvalancheFujiTestnet
           </button>
         </>
@@ -48,10 +65,10 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<AttackPage />} />
-          <Route path="/attack" element={<AttackPage />} />
-          <Route path="/mining" element={<Mining />} />
+          <Route path="/attack" element={<AttackPage chainId={chainId} />} />
+          <Route path="/mining" element={<Mining chainId={chainId} />} />
           <Route path="/upgrade" element={<Upgrade />} />
-          <Route path="/traverse" element={<Traverse />} />
+          <Route path="/traverse" element={<Traverse chainId={chainId} />} />
         </Routes>
       </Router>
     </div>

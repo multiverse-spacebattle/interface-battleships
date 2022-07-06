@@ -1,4 +1,18 @@
-function AttackPage() {
+const chainIdToImageMapping = {
+  1: "./3-Blue_640x360.png",
+  43113: "./3-Red_640x360.png",
+  4002: "./3-Green_640x360.png",
+  80001: "./3-Purple_640x360.png",
+};
+
+const chainIdToNameMapping = {
+  1: "Ethereum",
+  43113: "Avalanche",
+  4002: "Fantom",
+  80001: "Polygon",
+};
+
+function AttackPage({ chainId }) {
   return (
     <div className="flex flex-col w-full ">
       <div className="flex flex-row w-full border border-black h-96">
@@ -6,7 +20,8 @@ function AttackPage() {
           ENEMIES
         </div>
         <div className="flex flex-col w-1/4 border border-black h-full">
-          GALAXY
+          <img src={chainIdToImageMapping[chainId]}></img>
+          Galaxy: {chainIdToNameMapping[chainId]}
         </div>
       </div>
       <div className="flex flex-col w-full border border-black h-96 items-center">
