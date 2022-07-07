@@ -2,7 +2,9 @@ function Traverse() {
   return (
     <div className="flex flex-col w-full ">
       <div className="flex flex-row">
-        <div className="w-full h-96 border border-black">Map</div>
+        <div className="w-full h-96 border border-black">
+          <img src={"./SpaceWallpaper3840x1344.png"}></img>
+        </div>
       </div>
       <div className="w-full h-24 border border-black">Details</div>
       <div className="w-full h-24 border border-black">

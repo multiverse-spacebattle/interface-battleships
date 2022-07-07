@@ -10,6 +10,7 @@ import {
 
 import AttackPage from "../AttackPage/AttackPage";
 import Header from "../Header/Header";
+import Home from "../Home/Home";
 import Mining from "../Mining/Mining";
 import Upgrade from "../Upgrade/Upgrade";
 import Traverse from "../Traverse/Traverse";
@@ -64,7 +65,7 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<AttackPage />} />
+          <Route path="/" element={<Home chainId={chainId} />} />
           <Route path="/attack" element={<AttackPage chainId={chainId} />} />
           <Route path="/mining" element={<Mining chainId={chainId} />} />
           <Route path="/upgrade" element={<Upgrade />} />
