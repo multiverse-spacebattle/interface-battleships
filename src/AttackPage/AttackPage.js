@@ -1,3 +1,5 @@
+import SpaceshipProfile from "../SpaceshipProfile/SpaceshipProfile";
+
 const chainIdToImageMapping = {
   1: "./3-Blue_640x360.png",
   43113: "./3-Red_640x360.png",
@@ -13,11 +15,25 @@ const chainIdToNameMapping = {
 };
 
 function AttackPage({ chainId }) {
+  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const arr2 = [1, 2, 3, 4, 5];
+
   return (
     <div className="flex flex-col w-full ">
       <div className="flex flex-row w-full border border-black h-96">
-        <div className="flex flex-col w-3/4 border border-black h-full">
-          ENEMIES
+        <div className="flex flex-col w-3/4">
+          <div>Enemies</div>
+          <div className="flex flex-col w-full border border-black h-full flex-wrap overflow-x-auto">
+            {arr.map((element, index) => {
+              return <SpaceshipProfile />;
+            })}
+          </div>
+          <div>Your Spaceships:</div>
+          <div className="flex flex-col w-full border border-black h-full flex-wrap overflow-x-auto">
+            {arr2.map((element, index) => {
+              return <SpaceshipProfile />;
+            })}
+          </div>
         </div>
         <div className="flex flex-col w-1/4 border border-black h-full">
           <img src={chainIdToImageMapping[chainId]}></img>
