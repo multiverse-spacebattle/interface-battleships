@@ -23,7 +23,12 @@ function Home({ chainId }) {
         </div>
       ) : (
         <div className="flex flex-col w-full items-center">
-          <div>You currently have 0 spaceships</div>
+          <div>You currently have 7 spaceships across 5 chains</div>
+          <div>Ethereum: 1 spaceship</div>
+          <div>Polygon: 1 spaceship</div>
+          <div>Binance: 1 spaceship</div>
+          <div>Avalanche: 2 spaceship</div>
+          <div>Fantom: 2 spaceship</div>
           <div>
             You can mint your spaceship across any layer 1/2. Your NFT will be
             minted on {chainIdToNameMapping[chainId]}
