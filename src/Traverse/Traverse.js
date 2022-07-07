@@ -15,8 +15,20 @@ function Traverse() {
           return <SpaceshipProfile />;
         })}
       </div>
-      <div className="w-full h-24 border border-black">
-        Travel from Ethereum to Avalanche Galaxy
+      <div className="w-full border border-black">
+        <div>Travel from Ethereum to Avalanche Galaxy</div>
+        <div className="flex flex-row w-full items-center justify-around">
+          <div className="border border-black h-24 w-24">Ethereum</div>
+          <div className="border border-black h-24 w-24">Polygon</div>
+          <div className="border border-black h-24 w-24">Avalanche</div>
+          <div className="border border-black h-24 w-24">Binance</div>
+          <div className="border border-black h-24 w-24">Fantom</div>
+        </div>
+        <div className="flex flex-row w-full items-center justify-center">
+          <div className="border border-black mx-5">Ethereum</div>
+          <div className="border border-black mx-5">to</div>
+          <div className="border border-black mx-5">Polygon</div>
+        </div>
       </div>
       <div className="w-full flex flex-row justify-center">
         <button className="border border-black w-20">Traverse</button>
