@@ -16,7 +16,7 @@ import Upgrade from "../Upgrade/Upgrade";
 import Traverse from "../Traverse/Traverse";
 
 function App() {
-  const address = useAddress();
+  const userAddress = useAddress();
   const connectWithCoinbaseWallet = useCoinbaseWallet();
   const disconnectWallet = useDisconnect();
   const chainId = useChainId();
@@ -25,12 +25,12 @@ function App() {
 
   return (
     <div className="px-48">
-      {address ? (
+      {userAddress ? (
         <>
           <button className="border black-border" onClick={disconnectWallet}>
             Disconnect Wallet
           </button>
-          <p>Your address: {address}</p>
+          <p>Your address: {userAddress}</p>
           <button
             className="border black-border"
             onClick={() => switchNetwork(ChainId.Mainnet)}
@@ -65,7 +65,10 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Home chainId={chainId} />} />
+          <Route
+            path="/"
+            element={<Home chainId={chainId} userAddress={userAddress} />}
+          />
           <Route path="/attack" element={<AttackPage chainId={chainId} />} />
           <Route path="/mining" element={<Mining chainId={chainId} />} />
           <Route path="/upgrade" element={<Upgrade />} />

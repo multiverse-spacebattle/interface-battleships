@@ -9,7 +9,8 @@ import {
 } from "@usedapp/core";
 
 import OmniChainNFTInterface from "../Hooks/OmniChainNFT.json";
-import useAllSpaceships from "../Hooks/useAllSpaceships";
+import useGetAllSpaceships from "../Hooks/useGetAllSpaceships";
+import useGetAllSpaceshipsByOwner from "../Hooks/useGetAllSpaceshipsByOwner";
 
 import { getDefaultProvider, Contract } from "ethers";
 import { formatEther } from "@ethersproject/units";
@@ -39,7 +40,7 @@ const chainIdToNameMapping = {
   80001: "Polygon",
 };
 
-function Home({ chainId }) {
+function Home({ chainId, userAddress }) {
   const fantomTestnetBalance = useEtherBalance(address, {
     chainId: FantomTestnet.chainId,
   });
@@ -50,52 +51,46 @@ function Home({ chainId }) {
     chainId: Mumbai.chainId,
   });
 
-  const fantomTokenIds = useAllSpaceships(
+  const fantomTokenIds = useGetAllSpaceships(
     "0x46f69DbE78a313E33287f1F15C4fE19Fb2a3C2a7",
     {
       chainId: FantomTestnet.chainId,
     }
   );
 
-  const avalancheTestnetTokenIds = useAllSpaceships(
+  const avalancheTestnetTokenIds = useGetAllSpaceships(
     "0xAedB1077E9838d52Bd4c10AbB4AcA8F106A912F2",
     {
       chainId: AvalancheTestnet.chainId,
     }
   );
 
-  // function useAllSpaceships(contractAddress) {
-  //   // debugger;
-  //   console.log(FantomTestnet.chainId);
-  //   const { value, error } =
-  //     useCall(
-  //       contractAddress && {
-  //         contract: new Contract(contractAddress, OmniChainNFTInterface.abi), // instance of called contract
-  //         method: "getAllSpaceships",
-  //         args: [], // Method to be called
-  //         // chainId: FantomTestnet.chainId,
-  //       },
-  //       {
-  //         chainId: FantomTestnet.chainId,
-  //       }
-  //     ) ?? {};
-  //   if (error) {
-  //     console.error(error.message);
-  //     return undefined;
-  //   }
-  //   return value?.[0];
-  // }
+  const fantomTokenIdsOfUser = useGetAllSpaceshipsByOwner(
+    "0x46f69DbE78a313E33287f1F15C4fE19Fb2a3C2a7",
+    userAddress,
+    {
+      chainId: FantomTestnet.chainId,
+    }
+  );
+
+  const avalancheTestnetTokenIdsOfUser = useGetAllSpaceshipsByOwner(
+    "0xAedB1077E9838d52Bd4c10AbB4AcA8F106A912F2",
+    userAddress,
+    {
+      chainId: AvalancheTestnet.chainId,
+    }
+  );
 
   return (
     <div className="flex flex-col w-full items-center">
-      <div className="balance"> Account:</div>
+      <div className=""> Account:</div>
       <div className="inline">
         {/* <AccountIcon account={address} /> */}
         &nbsp;
-        <div className="account">{address}</div>
+        <div className="">{address}</div>
       </div>
       <br />
-      <div className="balance">
+      <div className="">
         fantomTestnet TokenIds:
         <p className="bold">
           {fantomTokenIds
@@ -103,31 +98,47 @@ function Home({ chainId }) {
             : null}
         </p>
       </div>
-      <div className="balance">
+      <div className="">
         avalancheTestnet TokenIds:
-        <p className="bold">
+        <p className="">
           {avalancheTestnetTokenIds
             ? avalancheTestnetTokenIds.map((val) => val.toNumber()).join(", ")
             : null}
         </p>
       </div>
-      <div className="balance">
-        Balance on fantomTestnet Testnet:
+      <div className="">
+        user fantomTestnet TokenIds:
         <p className="bold">
+          {fantomTokenIdsOfUser
+            ? fantomTokenIdsOfUser.map((val) => val.toNumber()).join(", ")
+            : null}
+        </p>
+      </div>
+      <div className="">
+        user avalancheTestnet TokenIds:
+        <p className="">
+          {avalancheTestnetTokenIdsOfUser
+            ? avalancheTestnetTokenIdsOfUser
+                .map((val) => val.toNumber())
+                .join(", ")
+            : null}
+        </p>
+      </div>
+      <div className="">
+        Balance on fantomTestnet Testnet:
+        <p className="">
           {fantomTestnetBalance && formatEther(fantomTestnetBalance)} FTM
         </p>
       </div>
-      <div className="balance">
+      <div className="">
         Balance on Avalanche Testnet:
-        <p className="bold">
+        <p className="">
           {avalancheTestnetBalance && formatEther(avalancheTestnetBalance)} AVAX
         </p>
       </div>
-      <div className="balance">
+      <div className="balnce">
         Balance on Polygon Testnet:
-        <p className="bold">
-          {mumbaiBalance && formatEther(mumbaiBalance)} MATIC
-        </p>
+        <p className="">{mumbaiBalance && formatEther(mumbaiBalance)} MATIC</p>
       </div>
       <div>Welcome to the cross-chain pvp spaceship game</div>
       {chainId === undefined ? (
