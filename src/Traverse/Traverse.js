@@ -18,24 +18,24 @@ function Traverse() {
       <div className="w-full border border-black">
         <div>Travel from Ethereum to Avalanche Galaxy</div>
         <div className="flex flex-row w-full items-center justify-around">
-          <div className="border border-black h-24 w-24">
+          <div className="border rounded-2xl h-24 w-24">
             <img src="./portal1.png"></img>
             <div>Ethereum</div>
           </div>
-          <div className="border border-black h-24 w-24">
-            <img src="./portal2.png"></img>
+          <div className="h-24 w-24">
+            <img src="./portal2.png" className="rounded-2xl"></img>
             <div>Polygon</div>
           </div>
-          <div className="border border-black h-24 w-24">
-            <img src="./portal3.png"></img>
+          <div className="h-24 w-24 rounded-2xl">
+            <img src="./portal3.png" className="rounded-2xl"></img>
             <div>Avalanche</div>
           </div>
-          <div className="border border-black h-24 w-24">
-            <img src="./portal4.png"></img>
+          <div className="h-24 w-24 rounded-2xl">
+            <img src="./portal4.png" className="rounded-2xl"></img>
             <div>Binance</div>
           </div>
-          <div className="border border-black h-24 w-24">
-            <img src="./portal5.png"></img>
+          <div className="h-24 w-24 rounded-2xl">
+            <img src="./portal5.png" className="rounded-2xl"></img>
             <div>Fantom</div>
           </div>
         </div>
