@@ -1,15 +1,20 @@
 import SpaceshipProfile from "../SpaceshipProfile/SpaceshipProfile";
+import chainIdToImageMapping from "../Utils/chainIdToImageMapping";
+import chainIdToNameMapping from "../Utils/chainIdToNameMapping";
 
-function Mining() {
+function Mining({ chainId }) {
   const arr2 = [1, 2, 3, 4, 5];
 
   return (
     <div className="flex flex-col w-full">
       <div className="flex flex-row">
         <div className="w-3/4 h-96 border border-black">
-          <img src="./asteroid.jpeg"></img>
+          <img src="./illustration 1.png"></img>
         </div>
-        <div className="w-1/4 h-96 border border-black">Image Right</div>
+        <div className="w-1/4 h-96 border border-black">
+          <img src={chainIdToImageMapping[chainId]}></img>
+          Galaxy: {chainIdToNameMapping[chainId]}
+        </div>
       </div>
       <div className="w-full h-24 border border-black">Details</div>
       <div className="flex flex-col w-full border border-black h-40 flex-wrap overflow-x-auto">

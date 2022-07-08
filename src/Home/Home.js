@@ -11,6 +11,8 @@ import {
 import OmniChainNFTInterface from "../Hooks/OmniChainNFT.json";
 import useGetAllSpaceships from "../Hooks/useGetAllSpaceships";
 import useGetAllSpaceshipsByOwner from "../Hooks/useGetAllSpaceshipsByOwner";
+import chainIdToImageMapping from "../Utils/chainIdToImageMapping";
+import chainIdToNameMapping from "../Utils/chainIdToNameMapping";
 
 import { getDefaultProvider, Contract } from "ethers";
 import { formatEther } from "@ethersproject/units";
@@ -22,22 +24,7 @@ const config: Config = {
     [FantomTestnet.chainId]: "https://rpc.testnet.fantom.network",
     [AvalancheTestnet.chainId]: "https://api.avax-test.network/ext/bc/C/rpc",
     [Mumbai.chainId]: "https://rpc-mumbai.maticvigil.com",
-    [Mumbai.chainId]: "https://rpc-mumbai.maticvigil.com",
   },
-};
-
-const chainIdToImageMapping = {
-  1: "./3-Blue_640x360.png",
-  43113: "./3-Red_640x360.png",
-  4002: "./3-Green_640x360.png",
-  80001: "./3-Purple_640x360.png",
-};
-
-const chainIdToNameMapping = {
-  1: "Ethereum",
-  43113: "Avalanche",
-  4002: "Fantom",
-  80001: "Polygon",
 };
 
 function Home({ chainId, userAddress }) {

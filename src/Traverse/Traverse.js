@@ -6,7 +6,7 @@ function Traverse() {
     <div className="flex flex-col w-full ">
       <div className="flex flex-row">
         <div className="w-full h-96 border border-black">
-          <img src={"./SpaceWallpaper3840x1344.png"}></img>
+          <img src={"./illustration 2.png"}></img>
         </div>
       </div>
       <div className="w-full h-24 border border-black">Details</div>
@@ -18,11 +18,26 @@ function Traverse() {
       <div className="w-full border border-black">
         <div>Travel from Ethereum to Avalanche Galaxy</div>
         <div className="flex flex-row w-full items-center justify-around">
-          <div className="border border-black h-24 w-24">Ethereum</div>
-          <div className="border border-black h-24 w-24">Polygon</div>
-          <div className="border border-black h-24 w-24">Avalanche</div>
-          <div className="border border-black h-24 w-24">Binance</div>
-          <div className="border border-black h-24 w-24">Fantom</div>
+          <div className="border border-black h-24 w-24">
+            <img src="./portal1.png"></img>
+            <div>Ethereum</div>
+          </div>
+          <div className="border border-black h-24 w-24">
+            <img src="./portal2.png"></img>
+            <div>Polygon</div>
+          </div>
+          <div className="border border-black h-24 w-24">
+            <img src="./portal3.png"></img>
+            <div>Avalanche</div>
+          </div>
+          <div className="border border-black h-24 w-24">
+            <img src="./portal4.png"></img>
+            <div>Binance</div>
+          </div>
+          <div className="border border-black h-24 w-24">
+            <img src="./portal5.png"></img>
+            <div>Fantom</div>
+          </div>
         </div>
         <div className="flex flex-row w-full items-center justify-center">
           <div className="border border-black mx-5">Ethereum</div>

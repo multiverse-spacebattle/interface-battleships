@@ -1,18 +1,6 @@
 import SpaceshipProfile from "../SpaceshipProfile/SpaceshipProfile";
-
-const chainIdToImageMapping = {
-  1: "./3-Blue_640x360.png",
-  43113: "./3-Red_640x360.png",
-  4002: "./3-Green_640x360.png",
-  80001: "./3-Purple_640x360.png",
-};
-
-const chainIdToNameMapping = {
-  1: "Ethereum",
-  43113: "Avalanche",
-  4002: "Fantom",
-  80001: "Polygon",
-};
+import chainIdToImageMapping from "../Utils/chainIdToImageMapping";
+import chainIdToNameMapping from "../Utils/chainIdToNameMapping";
 
 function AttackPage({ chainId }) {
   const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
