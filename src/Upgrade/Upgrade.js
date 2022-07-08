@@ -10,11 +10,26 @@ function Upgrade() {
           <div className="w-32 h-32 border border-black m-5">Upgrade</div>
           <div>Evolutions</div>
           <div className="flex flex-row">
-            <div className="w-32 h-32 border border-black m-2">Level 1</div>
-            <div className="w-32 h-32 border border-black m-2">Level 2</div>
-            <div className="w-32 h-32 border border-black m-2">Level 3</div>
-            <div className="w-32 h-32 border border-black m-2">Level 4</div>
-            <div className="w-32 h-32 border border-black m-2">Level 5</div>
+            <div className="w-32 h-32 m-2 items-center justify-center">
+              <img src="./level1.png" className="border"></img>
+              <div className="w-full text-center">Level 1</div>
+            </div>
+            <div className="w-32 h-32 m-2 items-center justify-center">
+              <img src="./level2.png" className="border"></img>
+              <div className="w-full text-center">Level 2</div>
+            </div>
+            <div className="w-32 h-32 m-2 items-center justify-center">
+              <img src="./level3.png" className="border"></img>
+              <div className="w-full text-center">Level 3</div>
+            </div>
+            <div className="w-32 h-32 m-2 items-center justify-center">
+              <img src="./level4.png" className="border"></img>
+              <div className="w-full text-center">Level 4</div>
+            </div>
+            <div className="w-32 h-32 m-2 items-center justify-center">
+              <img src="./level5.png" className="border"></img>
+              <div className="w-full text-center">Level 5</div>
+            </div>
           </div>
         </div>
         <div className="w-2/4 h-96 border border-black flex flex-row">

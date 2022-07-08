@@ -9,7 +9,7 @@ function Mining({ chainId }) {
     <div className="flex flex-col w-full">
       <div className="flex flex-row">
         <div className="w-3/4 h-96 border border-black">
-          <img src="./illustration 1.png"></img>
+          <img src="./illustration 3.png"></img>
         </div>
         <div className="w-1/4 h-96 border border-black">
           <img src={chainIdToImageMapping[chainId]}></img>
