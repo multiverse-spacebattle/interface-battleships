@@ -33,15 +33,18 @@ function App() {
 
   return (
     <div className="px-48">
-      <div className="w-full">
-        <div className="relative w-full dropdown">
-          <button
-            onClick={() => {
-              if (chainId) {
-                setNetworkSwitchDropdown(!networkSwitchDropdown);
-              }
-            }}
-            className="
+      <div className=" flex flex-col w-full items-end">
+        <div className="w-48">
+          <div className="relative dropdown">
+            <button
+              onClick={() => {
+                if (chainId) {
+                  setNetworkSwitchDropdown(!networkSwitchDropdown);
+                } else {
+                  connectWithCoinbaseWallet();
+                }
+              }}
+              className="
           dropdown-toggle
           px-6
           py-2.5
@@ -62,104 +65,89 @@ function App() {
           whitespace-nowrap
           w-full
         "
-            type="button"
-            id="dropdownMenuButton1"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Network:{" "}
-            {chainIdToNameMapping[chainId]
-              ? chainIdToNameMapping[chainId]
-              : "CONNECT WALLET"}
-            <svg
-              aria-hidden="true"
-              focusable="false"
-              data-prefix="fas"
-              data-icon="caret-down"
-              className="w-2 ml-2"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 320 512"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
             >
-              <path
-                fill="currentColor"
-                d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-              ></path>
-            </svg>
-          </button>
-          {networkSwitchDropdown && (
-            <ul
-              className="float-left w-full py-2 m-0 mt-1 text-base text-center list-none bg-white border-none rounded-lg shadow-lg dropdown-menu min-w-max bg-clip-padding"
-              aria-labelledby="dropdownMenuButton1"
-            >
-              <li>
-                <a
-                  className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
-                  href="#"
-                  onClick={() => changeNetwork("Mumbai")}
-                >
-                  Polygon
-                </a>
-              </li>
-              <li>
-                <a
-                  className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
-                  href="#"
-                  onClick={() => changeNetwork("FantomTestnet")}
-                >
-                  Fantom
-                </a>
-              </li>
-              <li>
-                <a
-                  className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
-                  href="#"
-                  onClick={() => changeNetwork("AvalancheFujiTestnet")}
-                >
-                  Avalanche
-                </a>
-              </li>
-            </ul>
-          )}
+              Network:{" "}
+              {chainIdToNameMapping[chainId]
+                ? chainIdToNameMapping[chainId]
+                : "CONNECT WALLET"}
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                data-prefix="fas"
+                data-icon="caret-down"
+                className="w-2 ml-2"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                ></path>
+              </svg>
+            </button>
+            {networkSwitchDropdown && (
+              <ul
+                className="float-left w-full py-2 m-0 mt-1 text-base text-center list-none bg-white border-none rounded-lg shadow-lg dropdown-menu min-w-max bg-clip-padding absolute"
+                aria-labelledby="dropdownMenuButton1"
+              >
+                <li>
+                  <a
+                    className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
+                    href="#"
+                    onClick={() => changeNetwork("Mumbai")}
+                  >
+                    Polygon
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
+                    href="#"
+                    onClick={() => changeNetwork("FantomTestnet")}
+                  >
+                    Fantom
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
+                    href="#"
+                    onClick={() => changeNetwork("AvalancheFujiTestnet")}
+                  >
+                    Avalanche
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
+                    href="#"
+                    onClick={() => disconnectWallet()}
+                  >
+                    Disconnect Wallet
+                  </a>
+                </li>
+              </ul>
+            )}
+          </div>
         </div>
+        {userAddress ? (
+          <>
+            <p>
+              Connected:{" "}
+              {userAddress.slice(0, 5) + "..." + userAddress.slice(-5)}
+            </p>
+          </>
+        ) : (
+          <button onClick={connectWithCoinbaseWallet}>
+            Connect with Coinbase Wallet
+          </button>
+        )}
       </div>
-      {userAddress ? (
-        <>
-          <button className="border black-border" onClick={disconnectWallet}>
-            Disconnect Wallet
-          </button>
-          <p>Your address: {userAddress}</p>
-          <button
-            className="border black-border"
-            onClick={() => switchNetwork(ChainId.Mainnet)}
-          >
-            Switch To Ethereum
-          </button>
-          <button
-            className="border black-border"
-            onClick={() => switchNetwork(ChainId.Mumbai)}
-          >
-            Switch To Mumbai
-          </button>
-          <button
-            className="border black-border"
-            onClick={() => switchNetwork(ChainId.FantomTestnet)}
-          >
-            Switch To FantomTestnet
-          </button>
-          <button
-            className="border black-border"
-            onClick={() => switchNetwork(ChainId.AvalancheFujiTestnet)}
-          >
-            Switch To AvalancheFujiTestnet
-          </button>
-        </>
-      ) : (
-        <button onClick={connectWithCoinbaseWallet}>
-          Connect with Coinbase Wallet
-        </button>
-      )}
-      <div>ChainId: {chainId}</div>
       <Router>
         <Header />
         <Routes>
