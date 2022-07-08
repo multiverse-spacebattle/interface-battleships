@@ -7,7 +7,10 @@ function Upgrade() {
     <div className="flex flex-col w-full ">
       <div className="flex flex-row">
         <div className="w-2/4 h-96 border border-black">
-          <div className="w-32 h-32 border border-black m-5">Upgrade</div>
+          <div className="w-24 h-24 m-2 items-center justify-center">
+            <img src="./upgrade.png" className="border rounded-2xl"></img>
+            <div className="w-full text-center">Upgrade</div>
+          </div>
           <div>Evolutions</div>
           <div className="flex flex-row">
             <div className="w-32 h-32 m-2 items-center justify-center">
@@ -33,8 +36,14 @@ function Upgrade() {
           </div>
         </div>
         <div className="w-2/4 h-96 border border-black flex flex-row">
-          <div className="w-32 h-32 border border-black m-5">Missile</div>
-          <div className="w-32 h-32 border border-black m-5">Shield</div>
+          <div className="w-24 h-24 m-2 items-center justify-center">
+            <img src="./missile.png" className="border rounded-2xl"></img>
+            <div className="w-full text-center">Missile</div>
+          </div>
+          <div className="w-24 h-24 m-2 items-center justify-center">
+            <img src="./bubble.png" className="border rounded-2xl"></img>
+            <div className="w-full text-center">Shield</div>
+          </div>
         </div>
       </div>
       <div className="flex flex-col w-full border border-black h-40 flex-wrap overflow-x-auto">
