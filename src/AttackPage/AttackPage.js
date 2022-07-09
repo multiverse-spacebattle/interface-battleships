@@ -2,7 +2,11 @@ import SpaceshipProfile from "../SpaceshipProfile/SpaceshipProfile";
 import chainIdToImageMapping from "../Utils/chainIdToImageMapping";
 import chainIdToNameMapping from "../Utils/chainIdToNameMapping";
 
-function AttackPage({ chainId }) {
+function AttackPage({
+  chainId,
+  fantomTokenIdsOfUser = [],
+  avalancheTestnetTokenIdsOfUser = [],
+}) {
   const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const arr2 = [1, 2, 3, 4, 5];
 
@@ -18,8 +22,8 @@ function AttackPage({ chainId }) {
           </div>
           <div>Your Spaceships:</div>
           <div className="flex flex-col w-full border border-black h-full flex-wrap overflow-x-auto">
-            {arr2.map((element, index) => {
-              return <SpaceshipProfile />;
+            {avalancheTestnetTokenIdsOfUser.map((element, index) => {
+              return <SpaceshipProfile tokenId={element.toNumber()} />;
             })}
           </div>
         </div>

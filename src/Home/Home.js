@@ -70,47 +70,6 @@ function Home({ chainId, userAddress }) {
 
   return (
     <div className="flex flex-col w-full items-center">
-      <div className=""> Account:</div>
-      <div className="inline">
-        {/* <AccountIcon account={address} /> */}
-        &nbsp;
-        <div className="">{address}</div>
-      </div>
-      <br />
-      <div className="">
-        fantomTestnet TokenIds:
-        <p className="bold">
-          {fantomTokenIds
-            ? fantomTokenIds.map((val) => val.toNumber()).join(", ")
-            : null}
-        </p>
-      </div>
-      <div className="">
-        avalancheTestnet TokenIds:
-        <p className="">
-          {avalancheTestnetTokenIds
-            ? avalancheTestnetTokenIds.map((val) => val.toNumber()).join(", ")
-            : null}
-        </p>
-      </div>
-      <div className="">
-        user fantomTestnet TokenIds:
-        <p className="bold">
-          {fantomTokenIdsOfUser
-            ? fantomTokenIdsOfUser.map((val) => val.toNumber()).join(", ")
-            : null}
-        </p>
-      </div>
-      <div className="">
-        user avalancheTestnet TokenIds:
-        <p className="">
-          {avalancheTestnetTokenIdsOfUser
-            ? avalancheTestnetTokenIdsOfUser
-                .map((val) => val.toNumber())
-                .join(", ")
-            : null}
-        </p>
-      </div>
       <div className="">
         Balance on fantomTestnet Testnet:
         <p className="">

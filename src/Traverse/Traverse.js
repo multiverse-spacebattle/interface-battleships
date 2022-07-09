@@ -19,7 +19,7 @@ function Traverse() {
         <div>Travel from Ethereum to Avalanche Galaxy</div>
         <div className="flex flex-row w-full items-center justify-around">
           <div className="border rounded-2xl h-24 w-24">
-            <img src="./portal1.png"></img>
+            <img src="./portal1.png" className="rounded-2xl"></img>
             <div>Ethereum</div>
           </div>
           <div className="h-24 w-24">

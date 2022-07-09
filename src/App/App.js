@@ -9,6 +9,16 @@ import {
   useCoinbaseWallet,
 } from "@thirdweb-dev/react";
 
+import {
+  Config,
+  DAppProvider,
+  AvalancheTestnet,
+  FantomTestnet,
+  Mumbai,
+  useEtherBalance,
+  useCall,
+} from "@usedapp/core";
+
 import AttackPage from "../AttackPage/AttackPage";
 import Header from "../Header/Header";
 import Home from "../Home/Home";
@@ -16,6 +26,11 @@ import Mining from "../Mining/Mining";
 import Upgrade from "../Upgrade/Upgrade";
 import Traverse from "../Traverse/Traverse";
 import chainIdToNameMapping from "../Utils/chainIdToNameMapping";
+
+import OmniChainNFTInterface from "../Hooks/OmniChainNFT.json";
+import useGetAllSpaceships from "../Hooks/useGetAllSpaceships";
+import useGetAllSpaceshipsByOwner from "../Hooks/useGetAllSpaceshipsByOwner";
+import chainIdToImageMapping from "../Utils/chainIdToImageMapping";
 
 function App() {
   const userAddress = useAddress();
@@ -30,6 +45,36 @@ function App() {
     switchNetwork(ChainId[network]);
     setNetworkSwitchDropdown(!networkSwitchDropdown);
   };
+
+  const fantomTokenIds = useGetAllSpaceships(
+    "0x46f69DbE78a313E33287f1F15C4fE19Fb2a3C2a7",
+    {
+      chainId: FantomTestnet.chainId,
+    }
+  );
+
+  const avalancheTestnetTokenIds = useGetAllSpaceships(
+    "0xAedB1077E9838d52Bd4c10AbB4AcA8F106A912F2",
+    {
+      chainId: AvalancheTestnet.chainId,
+    }
+  );
+
+  const fantomTokenIdsOfUser = useGetAllSpaceshipsByOwner(
+    "0x46f69DbE78a313E33287f1F15C4fE19Fb2a3C2a7",
+    userAddress,
+    {
+      chainId: FantomTestnet.chainId,
+    }
+  );
+
+  const avalancheTestnetTokenIdsOfUser = useGetAllSpaceshipsByOwner(
+    "0xAedB1077E9838d52Bd4c10AbB4AcA8F106A912F2",
+    userAddress,
+    {
+      chainId: AvalancheTestnet.chainId,
+    }
+  );
 
   return (
     <div className="px-48">
@@ -148,6 +193,40 @@ function App() {
           </button>
         )}
       </div>
+      <div className="">
+        fantomTestnet TokenIds:
+        <p className="bold">
+          {fantomTokenIds
+            ? fantomTokenIds.map((val) => val.toNumber()).join(", ")
+            : null}
+        </p>
+      </div>
+      <div className="">
+        avalancheTestnet TokenIds:
+        <p className="">
+          {avalancheTestnetTokenIds
+            ? avalancheTestnetTokenIds.map((val) => val.toNumber()).join(", ")
+            : null}
+        </p>
+      </div>
+      <div className="">
+        user fantomTestnet TokenIds:
+        <p className="bold">
+          {fantomTokenIdsOfUser
+            ? fantomTokenIdsOfUser.map((val) => val.toNumber()).join(", ")
+            : null}
+        </p>
+      </div>
+      <div className="">
+        user avalancheTestnet TokenIds:
+        <p className="">
+          {avalancheTestnetTokenIdsOfUser
+            ? avalancheTestnetTokenIdsOfUser
+                .map((val) => val.toNumber())
+                .join(", ")
+            : null}
+        </p>
+      </div>
       <Router>
         <Header />
         <Routes>
@@ -155,7 +234,16 @@ function App() {
             path="/"
             element={<Home chainId={chainId} userAddress={userAddress} />}
           />
-          <Route path="/attack" element={<AttackPage chainId={chainId} />} />
+          <Route
+            path="/attack"
+            element={
+              <AttackPage
+                chainId={chainId}
+                fantomTokenIdsOfUser={fantomTokenIdsOfUser}
+                avalancheTestnetTokenIdsOfUser={avalancheTestnetTokenIdsOfUser}
+              />
+            }
+          />
           <Route path="/mining" element={<Mining chainId={chainId} />} />
           <Route path="/upgrade" element={<Upgrade />} />
           <Route path="/traverse" element={<Traverse chainId={chainId} />} />
