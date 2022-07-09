@@ -8,8 +8,7 @@ function SpaceshipProfile({ tokenId }) {
     axios
       .get("https://nft-fleet-server.herokuapp.com/?chainId=42&power=12")
       .then((result) => {
-        console.log(result);
-        setImageUrl(result.result);
+        setImageUrl(result.data.image);
       });
   }, []);
 
