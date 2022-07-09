@@ -54,7 +54,7 @@ function App() {
   );
 
   const avalancheTestnetTokenIds = useGetAllSpaceships(
-    "0xAedB1077E9838d52Bd4c10AbB4AcA8F106A912F2",
+    "0x1E1BEc328f4AfDE1944c820dC3c4D6868fC0D1b4",
     {
       chainId: AvalancheTestnet.chainId,
     }
@@ -69,7 +69,7 @@ function App() {
   );
 
   const avalancheTestnetTokenIdsOfUser = useGetAllSpaceshipsByOwner(
-    "0xAedB1077E9838d52Bd4c10AbB4AcA8F106A912F2",
+    "0x1E1BEc328f4AfDE1944c820dC3c4D6868fC0D1b4",
     userAddress,
     {
       chainId: AvalancheTestnet.chainId,

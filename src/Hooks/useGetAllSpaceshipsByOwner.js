@@ -1,6 +1,6 @@
 import { useCall } from "@usedapp/core";
 import { Contract } from "ethers";
-import OmniChainNFTInterface from "./OmniChainNFT.json";
+import ViewFunctionsInterface from "./ViewFunctions.json";
 
 export default function useGetAllSpaceshipsByOwner(
   contractAddress,
@@ -10,7 +10,7 @@ export default function useGetAllSpaceshipsByOwner(
   const { value, error } =
     useCall(
       contractAddress && {
-        contract: new Contract(contractAddress, OmniChainNFTInterface.abi), // instance of called contract
+        contract: new Contract(contractAddress, ViewFunctionsInterface.abi), // instance of called contract
         method: "getSpaceshipsByOwner",
         args: [address], // Method to be called
       },
