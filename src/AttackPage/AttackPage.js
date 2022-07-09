@@ -4,20 +4,30 @@ import chainIdToNameMapping from "../Utils/chainIdToNameMapping";
 
 function AttackPage({
   chainId,
+  avalancheTestnetTokenIds = [],
+  fantomTokenIds = [],
   fantomTokenIdsOfUser = [],
   avalancheTestnetTokenIdsOfUser = [],
 }) {
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  const arr2 = [1, 2, 3, 4, 5];
-
   return (
     <div className="flex flex-col w-full ">
       <div className="flex flex-row w-full border border-black h-96">
         <div className="flex flex-col w-3/4">
           <div>Enemies</div>
           <div className="flex flex-col w-full border border-black h-full flex-wrap overflow-x-auto">
-            {arr.map((element, index) => {
-              return <SpaceshipProfile />;
+            {avalancheTestnetTokenIds.map((element, index) => {
+              return (
+                <SpaceshipProfile
+                  tokenId={element.tokenId}
+                  power={element.power}
+                  resources={element.resource}
+                  missiles={element.missiles}
+                  shields={element.shields}
+                  staked={element.staked}
+                  inBatlle={element.inBattle}
+                  key={index}
+                />
+              );
             })}
           </div>
           <div>Your Spaceships:</div>
@@ -32,6 +42,7 @@ function AttackPage({
                   shields={element.shields}
                   staked={element.staked}
                   inBatlle={element.inBattle}
+                  key={index}
                 />
               );
             })}

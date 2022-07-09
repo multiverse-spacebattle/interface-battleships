@@ -241,7 +241,9 @@ function App() {
             element={
               <AttackPage
                 chainId={chainId}
+                fantomTokenIds={fantomTokenIds}
                 fantomTokenIdsOfUser={fantomTokenIdsOfUser}
+                avalancheTestnetTokenIds={avalancheTestnetTokenIds}
                 avalancheTestnetTokenIdsOfUser={avalancheTestnetTokenIdsOfUser}
               />
             }
