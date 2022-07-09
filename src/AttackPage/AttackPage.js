@@ -23,7 +23,17 @@ function AttackPage({
           <div>Your Spaceships:</div>
           <div className="flex flex-col w-full border border-black h-full flex-wrap overflow-x-auto">
             {avalancheTestnetTokenIdsOfUser.map((element, index) => {
-              return <SpaceshipProfile tokenId={element.toNumber()} />;
+              return (
+                <SpaceshipProfile
+                  tokenId={element.tokenId}
+                  power={element.power}
+                  resources={element.resource}
+                  missiles={element.missiles}
+                  shields={element.shields}
+                  staked={element.staked}
+                  inBatlle={element.inBattle}
+                />
+              );
             })}
           </div>
         </div>

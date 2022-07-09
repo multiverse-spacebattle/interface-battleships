@@ -47,7 +47,7 @@ function App() {
   };
 
   const fantomTokenIds = useGetAllSpaceships(
-    "0x46f69DbE78a313E33287f1F15C4fE19Fb2a3C2a7",
+    "0x566d5AA73D48e8A0e1f5035454E60f0d7573267b",
     {
       chainId: FantomTestnet.chainId,
     }
@@ -61,7 +61,7 @@ function App() {
   );
 
   const fantomTokenIdsOfUser = useGetAllSpaceshipsByOwner(
-    "0x46f69DbE78a313E33287f1F15C4fE19Fb2a3C2a7",
+    "0x566d5AA73D48e8A0e1f5035454E60f0d7573267b",
     userAddress,
     {
       chainId: FantomTestnet.chainId,
@@ -197,7 +197,7 @@ function App() {
         fantomTestnet TokenIds:
         <p className="bold">
           {fantomTokenIds
-            ? fantomTokenIds.map((val) => val.toNumber()).join(", ")
+            ? fantomTokenIds.map((val, index) => val.tokenId).join(", ")
             : null}
         </p>
       </div>
@@ -205,7 +205,9 @@ function App() {
         avalancheTestnet TokenIds:
         <p className="">
           {avalancheTestnetTokenIds
-            ? avalancheTestnetTokenIds.map((val) => val.toNumber()).join(", ")
+            ? avalancheTestnetTokenIds
+                .map((val, index) => val.tokenId)
+                .join(", ")
             : null}
         </p>
       </div>
@@ -213,7 +215,7 @@ function App() {
         user fantomTestnet TokenIds:
         <p className="bold">
           {fantomTokenIdsOfUser
-            ? fantomTokenIdsOfUser.map((val) => val.toNumber()).join(", ")
+            ? fantomTokenIdsOfUser.map((val, index) => val.tokenId).join(", ")
             : null}
         </p>
       </div>
@@ -222,7 +224,7 @@ function App() {
         <p className="">
           {avalancheTestnetTokenIdsOfUser
             ? avalancheTestnetTokenIdsOfUser
-                .map((val) => val.toNumber())
+                .map((val, index) => val.tokenId)
                 .join(", ")
             : null}
         </p>
