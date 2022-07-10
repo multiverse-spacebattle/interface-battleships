@@ -1,13 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
-import {
-  useNetwork,
-  ChainId,
-  useChainId,
-  useAddress,
-  useDisconnect,
-  useCoinbaseWallet,
-} from "@thirdweb-dev/react";
 
 import {
   Config,
@@ -18,6 +10,16 @@ import {
   useEtherBalance,
   useCall,
 } from "@usedapp/core";
+
+import {
+  useAccount,
+  useConnect,
+  useDisconnect,
+  useSwitchNetwork,
+  useNetwork,
+  allChains,
+} from "wagmi";
+import { InjectedConnector } from "wagmi/connectors/injected";
 
 import AttackPage from "../AttackPage/AttackPage";
 import Header from "../Header/Header";
@@ -33,16 +35,20 @@ import useGetAllSpaceshipsByOwner from "../Hooks/useGetAllSpaceshipsByOwner";
 import chainIdToImageMapping from "../Utils/chainIdToImageMapping";
 
 function App() {
-  const userAddress = useAddress();
-  const connectWithCoinbaseWallet = useCoinbaseWallet();
-  const disconnectWallet = useDisconnect();
-  const chainId = useChainId();
-
-  const [, switchNetwork] = useNetwork();
   const [networkSwitchDropdown, setNetworkSwitchDropdown] = useState(false);
 
+  const { address, isConnected } = useAccount();
+  const { connect } = useConnect({
+    connector: new InjectedConnector(),
+  });
+  const { disconnect } = useDisconnect();
+
+  const { chain } = useNetwork();
+  const { chains, error, isLoading, pendingChainId, switchNetwork } =
+    useSwitchNetwork();
+
   const changeNetwork = (network) => {
-    switchNetwork(ChainId[network]);
+    switchNetwork(network);
     setNetworkSwitchDropdown(!networkSwitchDropdown);
   };
 
@@ -62,7 +68,7 @@ function App() {
 
   const fantomTokenIdsOfUser = useGetAllSpaceshipsByOwner(
     "0x566d5AA73D48e8A0e1f5035454E60f0d7573267b",
-    userAddress,
+    address,
     {
       chainId: FantomTestnet.chainId,
     }
@@ -70,11 +76,21 @@ function App() {
 
   const avalancheTestnetTokenIdsOfUser = useGetAllSpaceshipsByOwner(
     "0x1E1BEc328f4AfDE1944c820dC3c4D6868fC0D1b4",
-    userAddress,
+    address,
     {
       chainId: AvalancheTestnet.chainId,
     }
   );
+
+  // if (isConnected)
+  //   return (
+  //     <div>
+  //       Connected to {address}
+  //       <button onClick={() => disconnect()}>Disconnect</button>
+  //       <button onClick={() => switchNetwork(4002)}>switch</button>
+  //     </div>
+  //   );
+  // return <button onClick={() => connect()}>Connect Wallet</button>;
 
   return (
     <div className="px-48">
@@ -83,10 +99,10 @@ function App() {
           <div className="relative dropdown">
             <button
               onClick={() => {
-                if (chainId) {
+                if (chain && chain.network) {
                   setNetworkSwitchDropdown(!networkSwitchDropdown);
                 } else {
-                  connectWithCoinbaseWallet();
+                  connect();
                 }
               }}
               className="
@@ -116,8 +132,8 @@ function App() {
               aria-expanded="false"
             >
               Network:{" "}
-              {chainIdToNameMapping[chainId]
-                ? chainIdToNameMapping[chainId]
+              {chain && chainIdToNameMapping[chain.network]
+                ? chainIdToNameMapping[chain.network]
                 : "CONNECT WALLET"}
               <svg
                 aria-hidden="true"
@@ -144,7 +160,7 @@ function App() {
                   <a
                     className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
                     href="#"
-                    onClick={() => changeNetwork("Mumbai")}
+                    onClick={() => changeNetwork(80001)}
                   >
                     Polygon
                   </a>
@@ -153,7 +169,7 @@ function App() {
                   <a
                     className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
                     href="#"
-                    onClick={() => changeNetwork("FantomTestnet")}
+                    onClick={() => changeNetwork(4002)}
                   >
                     Fantom
                   </a>
@@ -162,7 +178,7 @@ function App() {
                   <a
                     className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
                     href="#"
-                    onClick={() => changeNetwork("AvalancheFujiTestnet")}
+                    onClick={() => changeNetwork(43113)}
                   >
                     Avalanche
                   </a>
@@ -171,7 +187,7 @@ function App() {
                   <a
                     className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
                     href="#"
-                    onClick={() => disconnectWallet()}
+                    onClick={() => disconnect()}
                   >
                     Disconnect Wallet
                   </a>
@@ -180,15 +196,12 @@ function App() {
             )}
           </div>
         </div>
-        {userAddress ? (
+        {address ? (
           <>
-            <p>
-              Connected:{" "}
-              {userAddress.slice(0, 5) + "..." + userAddress.slice(-5)}
-            </p>
+            <p>Connected: {address.slice(0, 5) + "..." + address.slice(-5)}</p>
           </>
         ) : (
-          <button onClick={connectWithCoinbaseWallet}>
+          <button onClick={() => connect()}>
             Connect with Coinbase Wallet
           </button>
         )}
@@ -236,8 +249,8 @@ function App() {
             path="/"
             element={
               <Home
-                chainId={chainId}
-                userAddress={userAddress}
+                chainId={chain}
+                address={address}
                 userFantomSpaceships={fantomTokenIdsOfUser.length}
                 userAvalancheSpaceships={avalancheTestnetTokenIdsOfUser.length}
               />
@@ -247,7 +260,7 @@ function App() {
             path="/attack"
             element={
               <AttackPage
-                chainId={chainId}
+                chainId={chain}
                 fantomTokenIds={fantomTokenIds}
                 fantomTokenIdsOfUser={fantomTokenIdsOfUser}
                 avalancheTestnetTokenIds={avalancheTestnetTokenIds}
@@ -255,9 +268,9 @@ function App() {
               />
             }
           />
-          <Route path="/mining" element={<Mining chainId={chainId} />} />
+          <Route path="/mining" element={<Mining chainId={chain} />} />
           <Route path="/upgrade" element={<Upgrade />} />
-          <Route path="/traverse" element={<Traverse chainId={chainId} />} />
+          <Route path="/traverse" element={<Traverse chainId={chain} />} />
         </Routes>
       </Router>
     </div>

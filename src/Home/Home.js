@@ -8,13 +8,19 @@ import {
   useCall,
 } from "@usedapp/core";
 
+import { ethers } from "ethers";
+
+import { utils } from "ethers";
+import { Contract } from "@ethersproject/contracts";
+import OmniChainNFT from "../Utils/OmniChainNFT.json";
+
 import OmniChainNFTInterface from "../Hooks/OmniChainNFT.json";
 import useGetAllSpaceships from "../Hooks/useGetAllSpaceships";
 import useGetAllSpaceshipsByOwner from "../Hooks/useGetAllSpaceshipsByOwner";
 import chainIdToImageMapping from "../Utils/chainIdToImageMapping";
 import chainIdToNameMapping from "../Utils/chainIdToNameMapping";
 
-import { getDefaultProvider, Contract } from "ethers";
+// import { getDefaultProvider, Contract } from "ethers";
 import { formatEther } from "@ethersproject/units";
 
 const address = "0x5FfEd2963eb6657B583e34C64363fDD74CF889fD";
@@ -45,36 +51,6 @@ function Home({
   const mumbaiBalance = useEtherBalance(address, {
     chainId: Mumbai.chainId,
   });
-
-  const fantomTokenIds = useGetAllSpaceships(
-    "0x46f69DbE78a313E33287f1F15C4fE19Fb2a3C2a7",
-    {
-      chainId: FantomTestnet.chainId,
-    }
-  );
-
-  const avalancheTestnetTokenIds = useGetAllSpaceships(
-    "0xAedB1077E9838d52Bd4c10AbB4AcA8F106A912F2",
-    {
-      chainId: AvalancheTestnet.chainId,
-    }
-  );
-
-  const fantomTokenIdsOfUser = useGetAllSpaceshipsByOwner(
-    "0x46f69DbE78a313E33287f1F15C4fE19Fb2a3C2a7",
-    userAddress,
-    {
-      chainId: FantomTestnet.chainId,
-    }
-  );
-
-  const avalancheTestnetTokenIdsOfUser = useGetAllSpaceshipsByOwner(
-    "0xAedB1077E9838d52Bd4c10AbB4AcA8F106A912F2",
-    userAddress,
-    {
-      chainId: AvalancheTestnet.chainId,
-    }
-  );
 
   return (
     <div className="flex flex-col w-full items-center">

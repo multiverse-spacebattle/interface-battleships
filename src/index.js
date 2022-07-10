@@ -3,7 +3,6 @@ import { createRoot } from "react-dom/client";
 import App from "./App/App";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 
 import {
   // Mainnet,
@@ -17,6 +16,14 @@ import {
 } from "@usedapp/core";
 import { formatEther } from "@ethersproject/units";
 
+import { WagmiConfig, createClient } from "wagmi";
+import { getDefaultProvider } from "ethers";
+
+const client = createClient({
+  autoConnect: true,
+  provider: getDefaultProvider(),
+});
+
 const config: Config = {
   // readOnlyChainId: FantomTestnet.chainId,
   readOnlyUrls: {
@@ -26,18 +33,15 @@ const config: Config = {
   },
 };
 
-// This is the chainId your dApp will work on.
-const activeChainId = ChainId.Mainnet;
-
 const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(
   <React.StrictMode>
-    <DAppProvider config={config}>
-      <ThirdwebProvider desiredChainId={activeChainId}>
+    <WagmiConfig client={client}>
+      <DAppProvider config={config}>
         <App />
-      </ThirdwebProvider>
-    </DAppProvider>
+      </DAppProvider>
+    </WagmiConfig>
   </React.StrictMode>
 );
 
