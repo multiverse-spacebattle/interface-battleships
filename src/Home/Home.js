@@ -8,6 +8,8 @@ import {
   useCall,
 } from "@usedapp/core";
 
+import { useContractWrite } from "wagmi";
+
 import { ethers } from "ethers";
 
 import { utils } from "ethers";
@@ -19,8 +21,7 @@ import useGetAllSpaceships from "../Hooks/useGetAllSpaceships";
 import useGetAllSpaceshipsByOwner from "../Hooks/useGetAllSpaceshipsByOwner";
 import chainIdToImageMapping from "../Utils/chainIdToImageMapping";
 import chainIdToNameMapping from "../Utils/chainIdToNameMapping";
-
-// import { getDefaultProvider, Contract } from "ethers";
+import chainIdToOmnichainNFTContract from "../Utils/chainIdToOmnichainNFTContract";
 import { formatEther } from "@ethersproject/units";
 
 const address = "0x5FfEd2963eb6657B583e34C64363fDD74CF889fD";
@@ -42,6 +43,15 @@ function Home({
   userAvalancheSpaceships = 0,
   userFantomSpaceships = 0,
 }) {
+  const { data, isError, isLoading, write } = useContractWrite({
+    addressOrName: chainIdToOmnichainNFTContract[chainId.network],
+    contractInterface: OmniChainNFT.abi,
+    functionName: "mint",
+    overrides: {
+      value: ethers.utils.parseEther("0.01"),
+    },
+  });
+
   const fantomTestnetBalance = useEtherBalance(address, {
     chainId: FantomTestnet.chainId,
   });
@@ -77,13 +87,15 @@ function Home({
           <div>Fantom: {userFantomSpaceships} spaceship</div>
           <div>
             You can mint spaceships across any network. Your NFT will be minted
-            on {chainIdToNameMapping[chainId]}.
+            on {chainIdToNameMapping[chainId.network]}.
           </div>
           <div>
             If you wish to mint on a different chain, please switch your
             network.
           </div>
-          <button className="border border-black w-20">Mint</button>{" "}
+          <button className="border border-black w-20" onClick={() => write()}>
+            Mint
+          </button>{" "}
           <div className="">
             Balance on fantomTestnet Testnet:
             <p className="">

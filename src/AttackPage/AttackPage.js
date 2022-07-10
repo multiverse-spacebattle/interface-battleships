@@ -174,8 +174,8 @@ function AttackPage({
             {getGalaxySpaceships()}
           </div>
           <div>
-            Your Spaceships on {chainIdToNameMapping[chainId]}. Change your
-            network to view your spaceships on other chains.
+            Your Spaceships on {chainIdToNameMapping[chainId.network]}. Change
+            your network to view your spaceships on other chains.
           </div>
           <div className="flex flex-col w-full border border-black h-full flex-wrap overflow-x-auto">
             {avalancheTestnetTokenIdsOfUser.map((element, index) => {
@@ -195,8 +195,8 @@ function AttackPage({
           </div>
         </div>
         <div className="flex flex-col w-1/4 border border-black h-full">
-          <img src={chainIdToImageMapping[chainId]}></img>
-          Galaxy: {chainIdToNameMapping[chainId]}
+          <img src={chainIdToImageMapping[chainId.network]}></img>
+          Galaxy: {chainIdToNameMapping[chainId.network]}
         </div>
       </div>
       <div className="flex flex-col w-full border border-black h-96 items-center">

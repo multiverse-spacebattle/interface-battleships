@@ -12,8 +12,8 @@ function Mining({ chainId }) {
           <img src="./illustration 3.png"></img>
         </div>
         <div className="w-1/4 h-96 border border-black">
-          <img src={chainIdToImageMapping[chainId]}></img>
-          Galaxy: {chainIdToNameMapping[chainId]}
+          <img src={chainIdToImageMapping[chainId.network]}></img>
+          Galaxy: {chainIdToNameMapping[chainId.network]}
         </div>
       </div>
       <div className="w-full h-24 border border-black">Details</div>
