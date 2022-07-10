@@ -25,6 +25,8 @@ function AttackPage({
   const [userSpaceshipSelection, setUserSpaceshipSelection] = useState(null);
   const [ennemySpaceshipSelection, setEnnemySpaceshipSelection] =
     useState(null);
+  const [userSpaceshipDetails, setUserSpaceshipDetails] = useState(null);
+  const [ennemySpaceshipDetails, setEnnemySpaceshipDetails] = useState(null);
   const [ennemyNetworkSwitchDropdown, setEnnemyNetworkSwitchDropdown] =
     useState(false);
 
@@ -42,14 +44,10 @@ function AttackPage({
       return fantomTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
-            onClick={() => setUserSpaceshipSelection(element.tokenId)}
-            tokenId={element.tokenId}
-            power={element.power}
-            resources={element.resource}
-            missiles={element.missiles}
-            shields={element.shields}
-            staked={element.staked}
-            inBatlle={element.inBattle}
+            setUserSpaceshipSelection={setUserSpaceshipSelection}
+            userSpaceshipSelection={userSpaceshipSelection}
+            details={element}
+            setUserSpaceshipDetails={setUserSpaceshipDetails}
             key={index}
           />
         );
@@ -58,14 +56,10 @@ function AttackPage({
       return avalancheTestnetTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
-            onClick={() => setUserSpaceshipSelection(element.tokenId)}
-            tokenId={element.tokenId}
-            power={element.power}
-            resources={element.resource}
-            missiles={element.missiles}
-            shields={element.shields}
-            staked={element.staked}
-            inBatlle={element.inBattle}
+            setUserSpaceshipSelection={setUserSpaceshipSelection}
+            userSpaceshipSelection={userSpaceshipSelection}
+            details={element}
+            setUserSpaceshipDetails={setUserSpaceshipDetails}
             key={index}
           />
         );
@@ -76,13 +70,8 @@ function AttackPage({
           <SpaceshipProfile
             setUserSpaceshipSelection={setUserSpaceshipSelection}
             userSpaceshipSelection={userSpaceshipSelection}
-            tokenId={element.tokenId}
-            power={element.power}
-            resources={element.resource}
-            missiles={element.missiles}
-            shields={element.shields}
-            staked={element.staked}
-            inBatlle={element.inBattle}
+            details={element}
+            setUserSpaceshipDetails={setUserSpaceshipDetails}
             key={index}
           />
         );
@@ -91,14 +80,10 @@ function AttackPage({
       return rinkebyTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
-            onClick={() => setUserSpaceshipSelection(element.tokenId)}
-            tokenId={element.tokenId}
-            power={element.power}
-            resources={element.resource}
-            missiles={element.missiles}
-            shields={element.shields}
-            staked={element.staked}
-            inBatlle={element.inBattle}
+            setUserSpaceshipSelection={setUserSpaceshipSelection}
+            userSpaceshipSelection={userSpaceshipSelection}
+            details={element}
+            setUserSpaceshipDetails={setUserSpaceshipDetails}
             key={index}
           />
         );
@@ -107,14 +92,10 @@ function AttackPage({
       return mumbaiTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
-            onClick={() => setUserSpaceshipSelection(element.tokenId)}
-            tokenId={element.tokenId}
-            power={element.power}
-            resources={element.resource}
-            missiles={element.missiles}
-            shields={element.shields}
-            staked={element.staked}
-            inBatlle={element.inBattle}
+            setUserSpaceshipSelection={setUserSpaceshipSelection}
+            userSpaceshipSelection={userSpaceshipSelection}
+            details={element}
+            setUserSpaceshipDetails={setUserSpaceshipDetails}
             key={index}
           />
         );
@@ -128,14 +109,9 @@ function AttackPage({
         return (
           <SpaceshipEnnemy
             setEnnemySpaceshipSelection={setEnnemySpaceshipSelection}
+            setEnnemySpaceshipDetails={setEnnemySpaceshipDetails}
             ennemySpaceshipSelection={ennemySpaceshipSelection}
-            tokenId={element.tokenId}
-            power={element.power}
-            resources={element.resource}
-            missiles={element.missiles}
-            shields={element.shields}
-            staked={element.staked}
-            inBatlle={element.inBattle}
+            details={element}
             key={index}
           />
         );
@@ -145,14 +121,9 @@ function AttackPage({
         return (
           <SpaceshipEnnemy
             setEnnemySpaceshipSelection={setEnnemySpaceshipSelection}
+            setEnnemySpaceshipDetails={setEnnemySpaceshipDetails}
             ennemySpaceshipSelection={ennemySpaceshipSelection}
-            tokenId={element.tokenId}
-            power={element.power}
-            resources={element.resource}
-            missiles={element.missiles}
-            shields={element.shields}
-            staked={element.staked}
-            inBatlle={element.inBattle}
+            details={element}
             key={index}
           />
         );
@@ -162,14 +133,9 @@ function AttackPage({
         return (
           <SpaceshipEnnemy
             setEnnemySpaceshipSelection={setEnnemySpaceshipSelection}
+            setEnnemySpaceshipDetails={setEnnemySpaceshipDetails}
             ennemySpaceshipSelection={ennemySpaceshipSelection}
-            tokenId={element.tokenId}
-            power={element.power}
-            resources={element.resource}
-            missiles={element.missiles}
-            shields={element.shields}
-            staked={element.staked}
-            inBatlle={element.inBattle}
+            details={element}
             key={index}
           />
         );
@@ -179,14 +145,9 @@ function AttackPage({
         return (
           <SpaceshipEnnemy
             setEnnemySpaceshipSelection={setEnnemySpaceshipSelection}
+            setEnnemySpaceshipDetails={setEnnemySpaceshipDetails}
             ennemySpaceshipSelection={ennemySpaceshipSelection}
-            tokenId={element.tokenId}
-            power={element.power}
-            resources={element.resource}
-            missiles={element.missiles}
-            shields={element.shields}
-            staked={element.staked}
-            inBatlle={element.inBattle}
+            details={element}
             key={index}
           />
         );
@@ -196,14 +157,9 @@ function AttackPage({
         return (
           <SpaceshipEnnemy
             setEnnemySpaceshipSelection={setEnnemySpaceshipSelection}
+            setEnnemySpaceshipDetails={setEnnemySpaceshipDetails}
             ennemySpaceshipSelection={ennemySpaceshipSelection}
-            tokenId={element.tokenId}
-            power={element.power}
-            resources={element.resource}
-            missiles={element.missiles}
-            shields={element.shields}
-            staked={element.staked}
-            inBatlle={element.inBattle}
+            details={element}
             key={index}
           />
         );
@@ -349,12 +305,46 @@ function AttackPage({
         <div className="">Do you wish to attack X with a power of 4?</div>
         <div className="flex flex-row w-full justify-center">
           <div className="flex flex-col">
-            <div className="h-40 w-40 border border-black"></div>
+            {userSpaceshipSelection ? (
+              <div
+                className={
+                  "flex flex-col w-full border border-black w-40 h-40 m-5 cursor-pointer"
+                }
+              >
+                <img src={userSpaceshipDetails.imageUrl}></img>
+                <div>{userSpaceshipDetails.tokenId}</div>
+                <div>{userSpaceshipDetails.power}</div>
+                <div>{userSpaceshipDetails.resource}</div>
+                <div>{userSpaceshipDetails.missiles}</div>
+                <div>{userSpaceshipDetails.shields}</div>
+                <div>{userSpaceshipDetails.staked}</div>
+                <div>{userSpaceshipDetails.inBattle}</div>
+              </div>
+            ) : (
+              <div className="h-40 w-40 border border-black"></div>
+            )}
             <div>Your Fleet</div>
           </div>
           <div>VS</div>
           <div className="flex flex-col">
-            <div className="h-40 w-40 border border-black"></div>
+            {ennemySpaceshipSelection ? (
+              <div
+                className={
+                  "flex flex-col w-full border border-black w-40 h-40 m-5 cursor-pointer"
+                }
+              >
+                <img src={ennemySpaceshipDetails.imageUrl}></img>
+                <div>{ennemySpaceshipDetails.tokenId}</div>
+                <div>{ennemySpaceshipDetails.power}</div>
+                <div>{ennemySpaceshipDetails.resource}</div>
+                <div>{ennemySpaceshipDetails.missiles}</div>
+                <div>{ennemySpaceshipDetails.shields}</div>
+                <div>{ennemySpaceshipDetails.staked}</div>
+                <div>{ennemySpaceshipDetails.inBattle}</div>
+              </div>
+            ) : (
+              <div className="h-40 w-40 border border-black"></div>
+            )}
             <div>Enemy Fleet</div>
           </div>
         </div>

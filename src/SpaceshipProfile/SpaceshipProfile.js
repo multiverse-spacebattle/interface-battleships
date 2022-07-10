@@ -2,15 +2,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function SpaceshipProfile({
-  tokenId,
-  power,
-  resource,
-  missiles,
-  shields,
-  staked,
-  inBattle,
+  details,
   setUserSpaceshipSelection,
   userSpaceshipSelection,
+  setUserSpaceshipDetails,
 }) {
   const [imageUrl, setImageUrl] = useState("");
 
@@ -25,26 +20,29 @@ function SpaceshipProfile({
   return (
     <div
       className={
-        userSpaceshipSelection === tokenId
+        userSpaceshipSelection === details.tokenId
           ? "flex flex-col w-full border border-4 border-blue-500 w-40 h-40 m-5 cursor-pointer"
           : "flex flex-col w-full border border-black w-40 h-40 m-5 cursor-pointer"
       }
       onClick={() => {
-        if (tokenId === userSpaceshipSelection) {
+        if (details.tokenId === userSpaceshipSelection) {
           setUserSpaceshipSelection(null);
+          setUserSpaceshipDetails(null);
         } else {
-          setUserSpaceshipSelection(tokenId);
+          setUserSpaceshipSelection(details.tokenId);
+          details.imageUrl = imageUrl;
+          setUserSpaceshipDetails(details);
         }
       }}
     >
       <img src={imageUrl}></img>
-      <div>{tokenId}</div>
-      <div>{power}</div>
-      <div>{resource}</div>
-      <div>{missiles}</div>
-      <div>{shields}</div>
-      <div>{staked}</div>
-      <div>{inBattle}</div>
+      <div>{details.tokenId}</div>
+      <div>{details.power}</div>
+      <div>{details.resource}</div>
+      <div>{details.missiles}</div>
+      <div>{details.shields}</div>
+      <div>{details.staked}</div>
+      <div>{details.inBattle}</div>
     </div>
   );
 }
