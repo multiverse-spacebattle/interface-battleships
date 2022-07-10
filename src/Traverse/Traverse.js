@@ -1,3 +1,4 @@
+import { useState } from "react";
 import SpaceshipProfile from "../SpaceshipProfile/SpaceshipProfile";
 function Traverse({
   chainId,
@@ -7,18 +8,18 @@ function Traverse({
   binanceTestnetTokenIdsOfUser = [],
   mumbaiTokenIdsOfUser = [],
 }) {
+  const [userSpaceshipSelection, setUserSpaceshipSelection] = useState(null);
+  const [userSpaceshipDetails, setUserSpaceshipDetails] = useState(null);
+
   const getUserSpaceships = () => {
     if (chainId.id === 4002) {
       return fantomTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
-            tokenId={element.tokenId}
-            power={element.power}
-            resources={element.resource}
-            missiles={element.missiles}
-            shields={element.shields}
-            staked={element.staked}
-            inBatlle={element.inBattle}
+            setUserSpaceshipSelection={setUserSpaceshipSelection}
+            userSpaceshipSelection={userSpaceshipSelection}
+            details={element}
+            setUserSpaceshipDetails={setUserSpaceshipDetails}
             key={index}
           />
         );
@@ -27,13 +28,10 @@ function Traverse({
       return avalancheTestnetTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
-            tokenId={element.tokenId}
-            power={element.power}
-            resources={element.resource}
-            missiles={element.missiles}
-            shields={element.shields}
-            staked={element.staked}
-            inBatlle={element.inBattle}
+            setUserSpaceshipSelection={setUserSpaceshipSelection}
+            userSpaceshipSelection={userSpaceshipSelection}
+            details={element}
+            setUserSpaceshipDetails={setUserSpaceshipDetails}
             key={index}
           />
         );
@@ -42,13 +40,10 @@ function Traverse({
       return binanceTestnetTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
-            tokenId={element.tokenId}
-            power={element.power}
-            resources={element.resource}
-            missiles={element.missiles}
-            shields={element.shields}
-            staked={element.staked}
-            inBatlle={element.inBattle}
+            setUserSpaceshipSelection={setUserSpaceshipSelection}
+            userSpaceshipSelection={userSpaceshipSelection}
+            details={element}
+            setUserSpaceshipDetails={setUserSpaceshipDetails}
             key={index}
           />
         );
@@ -57,13 +52,10 @@ function Traverse({
       return rinkebyTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
-            tokenId={element.tokenId}
-            power={element.power}
-            resources={element.resource}
-            missiles={element.missiles}
-            shields={element.shields}
-            staked={element.staked}
-            inBatlle={element.inBattle}
+            setUserSpaceshipSelection={setUserSpaceshipSelection}
+            userSpaceshipSelection={userSpaceshipSelection}
+            details={element}
+            setUserSpaceshipDetails={setUserSpaceshipDetails}
             key={index}
           />
         );
@@ -72,13 +64,10 @@ function Traverse({
       return mumbaiTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
-            tokenId={element.tokenId}
-            power={element.power}
-            resources={element.resource}
-            missiles={element.missiles}
-            shields={element.shields}
-            staked={element.staked}
-            inBatlle={element.inBattle}
+            setUserSpaceshipSelection={setUserSpaceshipSelection}
+            userSpaceshipSelection={userSpaceshipSelection}
+            details={element}
+            setUserSpaceshipDetails={setUserSpaceshipDetails}
             key={index}
           />
         );

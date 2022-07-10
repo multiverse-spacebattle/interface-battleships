@@ -54,14 +54,14 @@ function App() {
   };
 
   const binanceTestnetTokenIds = useGetAllSpaceships(
-    "0x5786035332aaE61c70af36a4939780cFC3a4e4c9",
+    "0x4B89846e287ae17d8bA338b516cB7318D152a653",
     {
       chainId: 97,
     }
   );
 
   const binanceTestnetTokenIdsOfUser = useGetAllSpaceshipsByOwner(
-    "0x5786035332aaE61c70af36a4939780cFC3a4e4c9",
+    "0x4B89846e287ae17d8bA338b516cB7318D152a653",
     address,
     {
       chainId: 97,

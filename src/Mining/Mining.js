@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import SpaceshipProfile from "../SpaceshipProfile/SpaceshipProfile";
 import chainIdToImageMapping from "../Utils/chainIdToImageMapping";
 import chainIdToNameMapping from "../Utils/chainIdToNameMapping";
@@ -10,18 +12,18 @@ function Mining({
   binanceTestnetTokenIdsOfUser = [],
   mumbaiTokenIdsOfUser = [],
 }) {
+  const [userSpaceshipSelection, setUserSpaceshipSelection] = useState(null);
+  const [userSpaceshipDetails, setUserSpaceshipDetails] = useState(null);
+
   const getUserSpaceships = () => {
     if (chainId.id === 4002) {
       return fantomTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
-            tokenId={element.tokenId}
-            power={element.power}
-            resources={element.resource}
-            missiles={element.missiles}
-            shields={element.shields}
-            staked={element.staked}
-            inBatlle={element.inBattle}
+            setUserSpaceshipSelection={setUserSpaceshipSelection}
+            userSpaceshipSelection={userSpaceshipSelection}
+            details={element}
+            setUserSpaceshipDetails={setUserSpaceshipDetails}
             key={index}
           />
         );
@@ -30,13 +32,10 @@ function Mining({
       return avalancheTestnetTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
-            tokenId={element.tokenId}
-            power={element.power}
-            resources={element.resource}
-            missiles={element.missiles}
-            shields={element.shields}
-            staked={element.staked}
-            inBatlle={element.inBattle}
+            setUserSpaceshipSelection={setUserSpaceshipSelection}
+            userSpaceshipSelection={userSpaceshipSelection}
+            details={element}
+            setUserSpaceshipDetails={setUserSpaceshipDetails}
             key={index}
           />
         );
@@ -45,13 +44,10 @@ function Mining({
       return binanceTestnetTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
-            tokenId={element.tokenId}
-            power={element.power}
-            resources={element.resource}
-            missiles={element.missiles}
-            shields={element.shields}
-            staked={element.staked}
-            inBatlle={element.inBattle}
+            setUserSpaceshipSelection={setUserSpaceshipSelection}
+            userSpaceshipSelection={userSpaceshipSelection}
+            details={element}
+            setUserSpaceshipDetails={setUserSpaceshipDetails}
             key={index}
           />
         );
@@ -60,13 +56,10 @@ function Mining({
       return rinkebyTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
-            tokenId={element.tokenId}
-            power={element.power}
-            resources={element.resource}
-            missiles={element.missiles}
-            shields={element.shields}
-            staked={element.staked}
-            inBatlle={element.inBattle}
+            setUserSpaceshipSelection={setUserSpaceshipSelection}
+            userSpaceshipSelection={userSpaceshipSelection}
+            details={element}
+            setUserSpaceshipDetails={setUserSpaceshipDetails}
             key={index}
           />
         );
@@ -75,13 +68,10 @@ function Mining({
       return mumbaiTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
-            tokenId={element.tokenId}
-            power={element.power}
-            resources={element.resource}
-            missiles={element.missiles}
-            shields={element.shields}
-            staked={element.staked}
-            inBatlle={element.inBattle}
+            setUserSpaceshipSelection={setUserSpaceshipSelection}
+            userSpaceshipSelection={userSpaceshipSelection}
+            details={element}
+            setUserSpaceshipDetails={setUserSpaceshipDetails}
             key={index}
           />
         );
