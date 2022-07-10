@@ -9,8 +9,8 @@ function SpaceshipProfile({
   shields,
   staked,
   inBattle,
-  setUserSpaceshipSelection,
-  userSpaceshipSelection,
+  setEnnemySpaceshipSelection,
+  ennemySpaceshipSelection,
 }) {
   const [imageUrl, setImageUrl] = useState("");
 
@@ -25,15 +25,15 @@ function SpaceshipProfile({
   return (
     <div
       className={
-        userSpaceshipSelection === tokenId
+        ennemySpaceshipSelection === tokenId
           ? "flex flex-col w-full border border-4 border-blue-500 w-40 h-40 m-5 cursor-pointer"
           : "flex flex-col w-full border border-black w-40 h-40 m-5 cursor-pointer"
       }
       onClick={() => {
-        if (tokenId === userSpaceshipSelection) {
-          setUserSpaceshipSelection(null);
+        if (tokenId === ennemySpaceshipSelection) {
+          setEnnemySpaceshipSelection(null);
         } else {
-          setUserSpaceshipSelection(tokenId);
+          setEnnemySpaceshipSelection(tokenId);
         }
       }}
     >

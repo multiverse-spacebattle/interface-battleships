@@ -1,8 +1,13 @@
 import { useState } from "react";
 
+import { useContractWrite } from "wagmi";
+
 import SpaceshipProfile from "../SpaceshipProfile/SpaceshipProfile";
+import SpaceshipEnnemy from "../SpaceshipEnnemy/SpaceshipEnnemy";
 import chainIdToImageMapping from "../Utils/chainIdToImageMapping";
 import chainIdToNameMapping from "../Utils/chainIdToNameMapping";
+import chainIdToOmnichainNFTContract from "../Utils/chainIdToOmnichainNFTContract";
+import OmniChainNFT from "../Utils/OmniChainNFT.json";
 
 function AttackPage({
   chainId,
@@ -17,16 +22,27 @@ function AttackPage({
   binanceTestnetTokenIdsOfUser = [],
   mumbaiTokenIdsOfUser = [],
 }) {
+  const [userSpaceshipSelection, setUserSpaceshipSelection] = useState(null);
+  const [ennemySpaceshipSelection, setEnnemySpaceshipSelection] =
+    useState(null);
   const [ennemyNetworkSwitchDropdown, setEnnemyNetworkSwitchDropdown] =
     useState(false);
 
   const [galaxy, setGalaxy] = useState("Polygon");
+
+  const { data, isError, isLoading, write } = useContractWrite({
+    addressOrName: chainIdToOmnichainNFTContract[chainId.network],
+    contractInterface: OmniChainNFT.abi,
+    functionName: "battle",
+    args: [userSpaceshipSelection, ennemySpaceshipSelection],
+  });
 
   const getUserSpaceships = () => {
     if (chainId.id === 4002) {
       return fantomTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            onClick={() => setUserSpaceshipSelection(element.tokenId)}
             tokenId={element.tokenId}
             power={element.power}
             resources={element.resource}
@@ -42,6 +58,7 @@ function AttackPage({
       return avalancheTestnetTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            onClick={() => setUserSpaceshipSelection(element.tokenId)}
             tokenId={element.tokenId}
             power={element.power}
             resources={element.resource}
@@ -57,6 +74,8 @@ function AttackPage({
       return binanceTestnetTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            setUserSpaceshipSelection={setUserSpaceshipSelection}
+            userSpaceshipSelection={userSpaceshipSelection}
             tokenId={element.tokenId}
             power={element.power}
             resources={element.resource}
@@ -72,6 +91,7 @@ function AttackPage({
       return rinkebyTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            onClick={() => setUserSpaceshipSelection(element.tokenId)}
             tokenId={element.tokenId}
             power={element.power}
             resources={element.resource}
@@ -87,6 +107,7 @@ function AttackPage({
       return mumbaiTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            onClick={() => setUserSpaceshipSelection(element.tokenId)}
             tokenId={element.tokenId}
             power={element.power}
             resources={element.resource}
@@ -105,7 +126,9 @@ function AttackPage({
     if (galaxy === "Fantom") {
       return fantomTokenIds.map((element, index) => {
         return (
-          <SpaceshipProfile
+          <SpaceshipEnnemy
+            setEnnemySpaceshipSelection={setEnnemySpaceshipSelection}
+            ennemySpaceshipSelection={ennemySpaceshipSelection}
             tokenId={element.tokenId}
             power={element.power}
             resources={element.resource}
@@ -120,7 +143,9 @@ function AttackPage({
     } else if (galaxy === "Avalanche") {
       return avalancheTestnetTokenIds.map((element, index) => {
         return (
-          <SpaceshipProfile
+          <SpaceshipEnnemy
+            setEnnemySpaceshipSelection={setEnnemySpaceshipSelection}
+            ennemySpaceshipSelection={ennemySpaceshipSelection}
             tokenId={element.tokenId}
             power={element.power}
             resources={element.resource}
@@ -135,7 +160,9 @@ function AttackPage({
     } else if (galaxy === "Binance") {
       return binanceTestnetTokenIds.map((element, index) => {
         return (
-          <SpaceshipProfile
+          <SpaceshipEnnemy
+            setEnnemySpaceshipSelection={setEnnemySpaceshipSelection}
+            ennemySpaceshipSelection={ennemySpaceshipSelection}
             tokenId={element.tokenId}
             power={element.power}
             resources={element.resource}
@@ -150,7 +177,9 @@ function AttackPage({
     } else if (galaxy === "Ethereum") {
       return rinkebyTokenIds.map((element, index) => {
         return (
-          <SpaceshipProfile
+          <SpaceshipEnnemy
+            setEnnemySpaceshipSelection={setEnnemySpaceshipSelection}
+            ennemySpaceshipSelection={ennemySpaceshipSelection}
             tokenId={element.tokenId}
             power={element.power}
             resources={element.resource}
@@ -165,7 +194,9 @@ function AttackPage({
     } else if (galaxy === "Polygon") {
       return mumbaiTokenIds.map((element, index) => {
         return (
-          <SpaceshipProfile
+          <SpaceshipEnnemy
+            setEnnemySpaceshipSelection={setEnnemySpaceshipSelection}
+            ennemySpaceshipSelection={ennemySpaceshipSelection}
             tokenId={element.tokenId}
             power={element.power}
             resources={element.resource}
@@ -328,7 +359,9 @@ function AttackPage({
           </div>
         </div>
         <div className="">Odds of success is 33.33%</div>
-        <button className="border border-black w-20">Attack</button>
+        <button className="border border-black w-20" onClick={() => write()}>
+          Attack
+        </button>
       </div>
     </div>
   );
