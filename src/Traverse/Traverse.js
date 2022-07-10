@@ -29,19 +29,11 @@ function Traverse({
     },
     args: [
       chainIdToBridgeIdMapping[portal],
-      chainIdToOmnichainNFTContract[chainId.id],
+      chainIdToOmnichainNFTContract[portal],
       userSpaceshipSelection,
       0,
     ],
   });
-
-  console.log([
-    chainIdToBridgeIdMapping[portal],
-    chainIdToOmnichainNFTContract[chainId.id],
-    userSpaceshipSelection,
-    0,
-  ]);
-
   const getUserSpaceships = () => {
     if (chainId.id === 4002) {
       return fantomTokenIdsOfUser.map((element, index) => {
@@ -122,7 +114,7 @@ function Traverse({
         <div className="flex flex-row w-full items-center justify-around">
           <div
             className={
-              portal === "Ethereum"
+              portal === 4
                 ? "h-24 w-24 rounded-2xl border border-blue-400 border-4 cursor-pointer"
                 : "h-24 w-24 rounded-2xl cursor-pointer"
             }
@@ -133,7 +125,7 @@ function Traverse({
           </div>
           <div
             className={
-              portal === "Polygon"
+              portal === 80001
                 ? "h-24 w-24 rounded-2xl border border-blue-400 border-4 cursor-pointer"
                 : "h-24 w-24 rounded-2xl cursor-pointer"
             }
@@ -144,7 +136,7 @@ function Traverse({
           </div>
           <div
             className={
-              portal === "Avalanche"
+              portal === 43113
                 ? "h-24 w-24 rounded-2xl border border-blue-400 border-4 cursor-pointer"
                 : "h-24 w-24 rounded-2xl cursor-pointer"
             }
@@ -155,7 +147,7 @@ function Traverse({
           </div>
           <div
             className={
-              portal === "Binance"
+              portal === 97
                 ? "h-24 w-24 rounded-2xl border border-blue-400 border-4 cursor-pointer"
                 : "h-24 w-24 rounded-2xl cursor-pointer"
             }
@@ -166,7 +158,7 @@ function Traverse({
           </div>
           <div
             className={
-              portal === "Fantom"
+              portal === 4002
                 ? "h-24 w-24 rounded-2xl border border-blue-400 border-4 cursor-pointer"
                 : "h-24 w-24 rounded-2xl cursor-pointer"
             }
