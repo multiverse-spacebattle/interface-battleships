@@ -7,6 +7,7 @@ import {
   AvalancheTestnet,
   FantomTestnet,
   Mumbai,
+  Rinkeby,
   useEtherBalance,
   useCall,
 } from "@usedapp/core";
@@ -52,45 +53,80 @@ function App() {
     setNetworkSwitchDropdown(!networkSwitchDropdown);
   };
 
+  const binanceTestnetTokenIds = useGetAllSpaceships(
+    "0x5786035332aaE61c70af36a4939780cFC3a4e4c9",
+    {
+      chainId: 97,
+    }
+  );
+
+  const binanceTestnetTokenIdsOfUser = useGetAllSpaceshipsByOwner(
+    "0x5786035332aaE61c70af36a4939780cFC3a4e4c9",
+    address,
+    {
+      chainId: 97,
+    }
+  );
+
   const fantomTokenIds = useGetAllSpaceships(
-    "0x566d5AA73D48e8A0e1f5035454E60f0d7573267b",
+    "0x93D32dfDa1846189539ee1C22cBfc856dcDD87d5",
+    {
+      chainId: FantomTestnet.chainId,
+    }
+  );
+
+  const fantomTokenIdsOfUser = useGetAllSpaceshipsByOwner(
+    "0x93D32dfDa1846189539ee1C22cBfc856dcDD87d5",
+    address,
     {
       chainId: FantomTestnet.chainId,
     }
   );
 
   const avalancheTestnetTokenIds = useGetAllSpaceships(
-    "0x1E1BEc328f4AfDE1944c820dC3c4D6868fC0D1b4",
+    "0x3E48BF7fF0f121a47dB02121238727B17E745AB4",
     {
       chainId: AvalancheTestnet.chainId,
-    }
-  );
-
-  const fantomTokenIdsOfUser = useGetAllSpaceshipsByOwner(
-    "0x566d5AA73D48e8A0e1f5035454E60f0d7573267b",
-    address,
-    {
-      chainId: FantomTestnet.chainId,
     }
   );
 
   const avalancheTestnetTokenIdsOfUser = useGetAllSpaceshipsByOwner(
-    "0x1E1BEc328f4AfDE1944c820dC3c4D6868fC0D1b4",
+    "0x3E48BF7fF0f121a47dB02121238727B17E745AB4",
     address,
     {
       chainId: AvalancheTestnet.chainId,
     }
   );
 
-  // if (isConnected)
-  //   return (
-  //     <div>
-  //       Connected to {address}
-  //       <button onClick={() => disconnect()}>Disconnect</button>
-  //       <button onClick={() => switchNetwork(4002)}>switch</button>
-  //     </div>
-  //   );
-  // return <button onClick={() => connect()}>Connect Wallet</button>;
+  const mumbaiTokenIds = useGetAllSpaceships(
+    "0x3bC3D8929d70FB388BF5118EDF5fdd3C9A1BaABe",
+    {
+      chainId: Mumbai.chainId,
+    }
+  );
+
+  const mumbaiTokenIdsOfUser = useGetAllSpaceshipsByOwner(
+    "0x3bC3D8929d70FB388BF5118EDF5fdd3C9A1BaABe",
+    address,
+    {
+      chainId: Mumbai.chainId,
+    }
+  );
+
+  const rinkebyTokenIds = useGetAllSpaceships(
+    "0x1E1BEc328f4AfDE1944c820dC3c4D6868fC0D1b4",
+    {
+      chainId: Rinkeby.chainId,
+    }
+  );
+
+  const rinkebyTokenIdsOfUser = useGetAllSpaceshipsByOwner(
+    "0x1E1BEc328f4AfDE1944c820dC3c4D6868fC0D1b4",
+    address,
+    {
+      chainId: Rinkeby.chainId,
+    }
+  );
 
   return (
     <div className="px-48">
@@ -187,6 +223,24 @@ function App() {
                   <a
                     className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
                     href="#"
+                    onClick={() => changeNetwork(97)}
+                  >
+                    Binance
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
+                    href="#"
+                    onClick={() => changeNetwork(4)}
+                  >
+                    Ethereum
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
+                    href="#"
                     onClick={() => disconnect()}
                   >
                     Disconnect Wallet
@@ -253,6 +307,9 @@ function App() {
                 address={address}
                 userFantomSpaceships={fantomTokenIdsOfUser.length}
                 userAvalancheSpaceships={avalancheTestnetTokenIdsOfUser.length}
+                userBinanceSpaceships={binanceTestnetTokenIdsOfUser.length}
+                userPolygonSpaceships={mumbaiTokenIdsOfUser.length}
+                userEthereumSpaceships={rinkebyTokenIdsOfUser.length}
               />
             }
           />
@@ -265,6 +322,9 @@ function App() {
                 fantomTokenIdsOfUser={fantomTokenIdsOfUser}
                 avalancheTestnetTokenIds={avalancheTestnetTokenIds}
                 avalancheTestnetTokenIdsOfUser={avalancheTestnetTokenIdsOfUser}
+                rinkebyTokenIds={rinkebyTokenIds}
+                binanceTestnetTokenIds={binanceTestnetTokenIds}
+                mumbaiTokenIds={mumbaiTokenIds}
               />
             }
           />

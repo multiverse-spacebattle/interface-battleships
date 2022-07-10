@@ -8,6 +8,9 @@ function AttackPage({
   chainId,
   avalancheTestnetTokenIds = [],
   fantomTokenIds = [],
+  binanceTestnetTokenIds = [],
+  mumbaiTokenIds = [],
+  rinkebyTokenIds = [],
   fantomTokenIdsOfUser = [],
   avalancheTestnetTokenIdsOfUser = [],
 }) {
@@ -48,8 +51,50 @@ function AttackPage({
         );
       });
     } else if (galaxy === "Binance") {
+      return binanceTestnetTokenIds.map((element, index) => {
+        return (
+          <SpaceshipProfile
+            tokenId={element.tokenId}
+            power={element.power}
+            resources={element.resource}
+            missiles={element.missiles}
+            shields={element.shields}
+            staked={element.staked}
+            inBatlle={element.inBattle}
+            key={index}
+          />
+        );
+      });
     } else if (galaxy === "Ethereum") {
+      return rinkebyTokenIds.map((element, index) => {
+        return (
+          <SpaceshipProfile
+            tokenId={element.tokenId}
+            power={element.power}
+            resources={element.resource}
+            missiles={element.missiles}
+            shields={element.shields}
+            staked={element.staked}
+            inBatlle={element.inBattle}
+            key={index}
+          />
+        );
+      });
     } else if (galaxy === "Polygon") {
+      return mumbaiTokenIds.map((element, index) => {
+        return (
+          <SpaceshipProfile
+            tokenId={element.tokenId}
+            power={element.power}
+            resources={element.resource}
+            missiles={element.missiles}
+            shields={element.shields}
+            staked={element.staked}
+            inBatlle={element.inBattle}
+            key={index}
+          />
+        );
+      });
     }
   };
 

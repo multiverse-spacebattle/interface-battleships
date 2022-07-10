@@ -9,6 +9,7 @@ import {
   FantomTestnet,
   AvalancheTestnet,
   Mumbai,
+  Rinkeby,
   DAppProvider,
   useEtherBalance,
   useEthers,
@@ -30,6 +31,9 @@ const config: Config = {
     [FantomTestnet.chainId]: "https://rpc.testnet.fantom.network",
     [AvalancheTestnet.chainId]: "https://api.avax-test.network/ext/bc/C/rpc",
     [Mumbai.chainId]: "https://rpc-mumbai.maticvigil.com",
+    [97]: "https://data-seed-prebsc-1-s1.binance.org:8545/",
+    [Rinkeby.chainId]:
+      "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
   },
 };
 
