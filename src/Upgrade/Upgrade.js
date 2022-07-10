@@ -18,8 +18,7 @@ function Upgrade({
   const [userSpaceshipDetails, setUserSpaceshipDetails] = useState(null);
   const [itemSelection, setItemSelection] = useState(null);
 
-  const [dropdown, setDropdown] = useState(false);
-  const [quantity, setQuantity] = useState(false);
+  const [quantity, setQuantity] = useState(0);
 
   const itemMapping = {
     Upgrade: 0,
@@ -31,7 +30,7 @@ function Upgrade({
     addressOrName: chainIdToOmnichainNFTContract[chainId.network],
     contractInterface: OmniChainNFT.abi,
     functionName: "buyStuff",
-    args: [quantity, itemMapping[itemSelection], userSpaceshipDetails.tokenId],
+    args: [quantity, itemMapping[itemSelection], userSpaceshipSelection],
   });
 
   const getUserSpaceships = () => {
@@ -167,6 +166,8 @@ function Upgrade({
               </label>
               <input
                 type="text"
+                value={quantity}
+                onChange={(event) => setQuantity(event.target.value)}
                 className="
         form-control
         block

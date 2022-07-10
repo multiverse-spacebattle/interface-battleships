@@ -20,8 +20,6 @@ function Mining({
   const [userSpaceshipSelection, setUserSpaceshipSelection] = useState(null);
   const [userSpaceshipDetails, setUserSpaceshipDetails] = useState(null);
 
-  console.log(userSpaceshipDetails);
-
   const { data, isError, isLoading, write } = useContractWrite({
     addressOrName: chainIdToOmnichainNFTContract[chainId.network],
     contractInterface: OmniChainNFT.abi,
