@@ -13,11 +13,93 @@ function AttackPage({
   rinkebyTokenIds = [],
   fantomTokenIdsOfUser = [],
   avalancheTestnetTokenIdsOfUser = [],
+  rinkebyTokenIdsOfUser = [],
+  binanceTestnetTokenIdsOfUser = [],
+  mumbaiTokenIdsOfUser = [],
 }) {
   const [ennemyNetworkSwitchDropdown, setEnnemyNetworkSwitchDropdown] =
     useState(false);
 
   const [galaxy, setGalaxy] = useState("Polygon");
+
+  const getUserSpaceships = () => {
+    if (chainId.id === 4002) {
+      return fantomTokenIdsOfUser.map((element, index) => {
+        return (
+          <SpaceshipProfile
+            tokenId={element.tokenId}
+            power={element.power}
+            resources={element.resource}
+            missiles={element.missiles}
+            shields={element.shields}
+            staked={element.staked}
+            inBatlle={element.inBattle}
+            key={index}
+          />
+        );
+      });
+    } else if (chainId.id === 43113) {
+      return avalancheTestnetTokenIdsOfUser.map((element, index) => {
+        return (
+          <SpaceshipProfile
+            tokenId={element.tokenId}
+            power={element.power}
+            resources={element.resource}
+            missiles={element.missiles}
+            shields={element.shields}
+            staked={element.staked}
+            inBatlle={element.inBattle}
+            key={index}
+          />
+        );
+      });
+    } else if (chainId.id === 97) {
+      return binanceTestnetTokenIdsOfUser.map((element, index) => {
+        return (
+          <SpaceshipProfile
+            tokenId={element.tokenId}
+            power={element.power}
+            resources={element.resource}
+            missiles={element.missiles}
+            shields={element.shields}
+            staked={element.staked}
+            inBatlle={element.inBattle}
+            key={index}
+          />
+        );
+      });
+    } else if (chainId.id === 4) {
+      return rinkebyTokenIdsOfUser.map((element, index) => {
+        return (
+          <SpaceshipProfile
+            tokenId={element.tokenId}
+            power={element.power}
+            resources={element.resource}
+            missiles={element.missiles}
+            shields={element.shields}
+            staked={element.staked}
+            inBatlle={element.inBattle}
+            key={index}
+          />
+        );
+      });
+    } else if (chainId.id === 80001) {
+      return mumbaiTokenIdsOfUser.map((element, index) => {
+        return (
+          <SpaceshipProfile
+            tokenId={element.tokenId}
+            power={element.power}
+            resources={element.resource}
+            missiles={element.missiles}
+            shields={element.shields}
+            staked={element.staked}
+            inBatlle={element.inBattle}
+            key={index}
+          />
+        );
+      });
+    }
+  };
 
   const getGalaxySpaceships = () => {
     if (galaxy === "Fantom") {
@@ -224,20 +306,7 @@ function AttackPage({
             network to view your spaceships on other chains.
           </div>
           <div className="flex flex-col w-full border border-black h-full flex-wrap overflow-x-auto">
-            {avalancheTestnetTokenIdsOfUser.map((element, index) => {
-              return (
-                <SpaceshipProfile
-                  tokenId={element.tokenId}
-                  power={element.power}
-                  resources={element.resource}
-                  missiles={element.missiles}
-                  shields={element.shields}
-                  staked={element.staked}
-                  inBatlle={element.inBattle}
-                  key={index}
-                />
-              );
-            })}
+            {chainId && getUserSpaceships()}
           </div>
         </div>
         <div className="flex flex-col w-1/4 border border-black h-full">

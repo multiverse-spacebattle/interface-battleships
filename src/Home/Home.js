@@ -24,19 +24,9 @@ import chainIdToNameMapping from "../Utils/chainIdToNameMapping";
 import chainIdToOmnichainNFTContract from "../Utils/chainIdToOmnichainNFTContract";
 import { formatEther } from "@ethersproject/units";
 
-const address = "0x5FfEd2963eb6657B583e34C64363fDD74CF889fD";
-
-// const config: Config = {
-//   readOnlyUrls: {
-//     [FantomTestnet.chainId]: "https://rpc.testnet.fantom.network",
-//     [AvalancheTestnet.chainId]: "https://api.avax-test.network/ext/bc/C/rpc",
-//     [Mumbai.chainId]: "https://rpc-mumbai.maticvigil.com",
-//   },
-// };
-
 function Home({
   chainId,
-  userAddress,
+  address,
   userEthereumSpaceships = 0,
   userPolygonSpaceships = 0,
   userBinanceSpaceships = 0,

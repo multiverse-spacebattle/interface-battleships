@@ -319,18 +319,57 @@ function App() {
               <AttackPage
                 chainId={chain}
                 fantomTokenIds={fantomTokenIds}
-                fantomTokenIdsOfUser={fantomTokenIdsOfUser}
                 avalancheTestnetTokenIds={avalancheTestnetTokenIds}
-                avalancheTestnetTokenIdsOfUser={avalancheTestnetTokenIdsOfUser}
                 rinkebyTokenIds={rinkebyTokenIds}
                 binanceTestnetTokenIds={binanceTestnetTokenIds}
                 mumbaiTokenIds={mumbaiTokenIds}
+                rinkebyTokenIdsOfUser={rinkebyTokenIdsOfUser}
+                binanceTestnetTokenIdsOfUser={binanceTestnetTokenIdsOfUser}
+                mumbaiTokenIdsOfUser={mumbaiTokenIdsOfUser}
+                avalancheTestnetTokenIdsOfUser={avalancheTestnetTokenIdsOfUser}
+                fantomTokenIdsOfUser={fantomTokenIdsOfUser}
               />
             }
           />
-          <Route path="/mining" element={<Mining chainId={chain} />} />
-          <Route path="/upgrade" element={<Upgrade />} />
-          <Route path="/traverse" element={<Traverse chainId={chain} />} />
+          <Route
+            path="/mining"
+            element={
+              <Mining
+                chainId={chain}
+                rinkebyTokenIdsOfUser={rinkebyTokenIdsOfUser}
+                binanceTestnetTokenIdsOfUser={binanceTestnetTokenIdsOfUser}
+                mumbaiTokenIdsOfUser={mumbaiTokenIdsOfUser}
+                avalancheTestnetTokenIdsOfUser={avalancheTestnetTokenIdsOfUser}
+                fantomTokenIdsOfUser={fantomTokenIdsOfUser}
+              />
+            }
+          />
+          <Route
+            path="/upgrade"
+            element={
+              <Upgrade
+                chainId={chain}
+                rinkebyTokenIdsOfUser={rinkebyTokenIdsOfUser}
+                binanceTestnetTokenIdsOfUser={binanceTestnetTokenIdsOfUser}
+                mumbaiTokenIdsOfUser={mumbaiTokenIdsOfUser}
+                avalancheTestnetTokenIdsOfUser={avalancheTestnetTokenIdsOfUser}
+                fantomTokenIdsOfUser={fantomTokenIdsOfUser}
+              />
+            }
+          />
+          <Route
+            path="/traverse"
+            element={
+              <Traverse
+                chainId={chain}
+                rinkebyTokenIdsOfUser={rinkebyTokenIdsOfUser}
+                binanceTestnetTokenIdsOfUser={binanceTestnetTokenIdsOfUser}
+                mumbaiTokenIdsOfUser={mumbaiTokenIdsOfUser}
+                avalancheTestnetTokenIdsOfUser={avalancheTestnetTokenIdsOfUser}
+                fantomTokenIdsOfUser={fantomTokenIdsOfUser}
+              />
+            }
+          />
         </Routes>
       </Router>
     </div>
