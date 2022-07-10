@@ -30,8 +30,14 @@ function Upgrade({
     addressOrName: chainIdToOmnichainNFTContract[chainId.network],
     contractInterface: OmniChainNFT.abi,
     functionName: "buyStuff",
-    args: [quantity, itemMapping[itemSelection], userSpaceshipSelection],
+    args: [
+      Number(quantity),
+      itemMapping[itemSelection],
+      userSpaceshipSelection,
+    ],
   });
+
+  console.log([quantity, itemMapping[itemSelection], userSpaceshipSelection]);
 
   const getUserSpaceships = () => {
     if (chainId.id === 4002) {

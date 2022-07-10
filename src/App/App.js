@@ -69,14 +69,14 @@ function App() {
   );
 
   const fantomTokenIds = useGetAllSpaceships(
-    "0xb85778E9a02Ca00D01EB6A8D090F75F4d3fE6Ef4",
+    "0xC66e2863829b46e9b6eF2168a378E5F54139fd19",
     {
       chainId: FantomTestnet.chainId,
     }
   );
 
   const fantomTokenIdsOfUser = useGetAllSpaceshipsByOwner(
-    "0xb85778E9a02Ca00D01EB6A8D090F75F4d3fE6Ef4",
+    "0xC66e2863829b46e9b6eF2168a378E5F54139fd19",
     address,
     {
       chainId: FantomTestnet.chainId,

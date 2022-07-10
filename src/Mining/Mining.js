@@ -122,7 +122,7 @@ function Mining({
         {chainId && getUserSpaceships()}
       </div>
       <div className="w-full flex flex-row justify-center">
-        {userSpaceshipDetails.staked ? (
+        {userSpaceshipDetails && userSpaceshipDetails.staked ? (
           <div>
             {" "}
             <button
