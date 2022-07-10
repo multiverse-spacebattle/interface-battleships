@@ -54,14 +54,14 @@ function App() {
   };
 
   const binanceTestnetTokenIds = useGetAllSpaceships(
-    "0x4B89846e287ae17d8bA338b516cB7318D152a653",
+    "0x52609775E5Ef6Dad4eCbe191838cd27528057fC6",
     {
       chainId: 97,
     }
   );
 
   const binanceTestnetTokenIdsOfUser = useGetAllSpaceshipsByOwner(
-    "0x4B89846e287ae17d8bA338b516cB7318D152a653",
+    "0x52609775E5Ef6Dad4eCbe191838cd27528057fC6",
     address,
     {
       chainId: 97,
@@ -69,14 +69,14 @@ function App() {
   );
 
   const fantomTokenIds = useGetAllSpaceships(
-    "0xC66e2863829b46e9b6eF2168a378E5F54139fd19",
+    "0x009aa615c0F45edd6d80613C72258daE532Fd283",
     {
       chainId: FantomTestnet.chainId,
     }
   );
 
   const fantomTokenIdsOfUser = useGetAllSpaceshipsByOwner(
-    "0xC66e2863829b46e9b6eF2168a378E5F54139fd19",
+    "0x009aa615c0F45edd6d80613C72258daE532Fd283",
     address,
     {
       chainId: FantomTestnet.chainId,
@@ -84,14 +84,14 @@ function App() {
   );
 
   const avalancheTestnetTokenIds = useGetAllSpaceships(
-    "0x3E48BF7fF0f121a47dB02121238727B17E745AB4",
+    "0x164A49e1607Eb036091a4e530C7F53fF85eb42dB",
     {
       chainId: AvalancheTestnet.chainId,
     }
   );
 
   const avalancheTestnetTokenIdsOfUser = useGetAllSpaceshipsByOwner(
-    "0x3E48BF7fF0f121a47dB02121238727B17E745AB4",
+    "0x164A49e1607Eb036091a4e530C7F53fF85eb42dB",
     address,
     {
       chainId: AvalancheTestnet.chainId,
@@ -99,14 +99,14 @@ function App() {
   );
 
   const mumbaiTokenIds = useGetAllSpaceships(
-    "0x3bC3D8929d70FB388BF5118EDF5fdd3C9A1BaABe",
+    "0x46f69DbE78a313E33287f1F15C4fE19Fb2a3C2a7",
     {
       chainId: Mumbai.chainId,
     }
   );
 
   const mumbaiTokenIdsOfUser = useGetAllSpaceshipsByOwner(
-    "0x3bC3D8929d70FB388BF5118EDF5fdd3C9A1BaABe",
+    "0x46f69DbE78a313E33287f1F15C4fE19Fb2a3C2a7",
     address,
     {
       chainId: Mumbai.chainId,
@@ -114,14 +114,14 @@ function App() {
   );
 
   const rinkebyTokenIds = useGetAllSpaceships(
-    "0x1E1BEc328f4AfDE1944c820dC3c4D6868fC0D1b4",
+    "0xDF4b5Ad7019181233Be95993De749e9Abb53Ca03",
     {
       chainId: Rinkeby.chainId,
     }
   );
 
   const rinkebyTokenIdsOfUser = useGetAllSpaceshipsByOwner(
-    "0x1E1BEc328f4AfDE1944c820dC3c4D6868fC0D1b4",
+    "0xDF4b5Ad7019181233Be95993De749e9Abb53Ca03",
     address,
     {
       chainId: Rinkeby.chainId,
@@ -260,42 +260,7 @@ function App() {
           </button>
         )}
       </div>
-      <div className="">
-        fantomTestnet TokenIds:
-        <p className="bold">
-          {fantomTokenIds
-            ? fantomTokenIds.map((val, index) => val.tokenId).join(", ")
-            : null}
-        </p>
-      </div>
-      <div className="">
-        avalancheTestnet TokenIds:
-        <p className="">
-          {avalancheTestnetTokenIds
-            ? avalancheTestnetTokenIds
-                .map((val, index) => val.tokenId)
-                .join(", ")
-            : null}
-        </p>
-      </div>
-      <div className="">
-        user fantomTestnet TokenIds:
-        <p className="bold">
-          {fantomTokenIdsOfUser
-            ? fantomTokenIdsOfUser.map((val, index) => val.tokenId).join(", ")
-            : null}
-        </p>
-      </div>
-      <div className="">
-        user avalancheTestnet TokenIds:
-        <p className="">
-          {avalancheTestnetTokenIdsOfUser
-            ? avalancheTestnetTokenIdsOfUser
-                .map((val, index) => val.tokenId)
-                .join(", ")
-            : null}
-        </p>
-      </div>
+
       <Router>
         <Header />
         <Routes>
