@@ -178,8 +178,7 @@ function AttackPage({
     <div className="flex flex-col w-full ">
       <div className="flex flex-row w-full border border-black h-96">
         <div className="flex flex-col w-3/4">
-          <div>Enemies</div>
-          <div className=" flex flex-col w-full items-end">
+          <div className=" flex flex-col w-full items-end bg-neutral-800">
             <div className="w-48">
               <div className="relative dropdown">
                 <button
@@ -286,15 +285,15 @@ function AttackPage({
               </div>
             </div>
           </div>
-          <div className="flex flex-col w-full border border-black h-full flex-wrap overflow-x-auto">
+          <div className="flex flex-col w-full border border-black h-full flex-wrap overflow-x-auto bg-neutral-700">
             {getGalaxySpaceships()}
           </div>
-          <div>
+          <div className="bg-neutral-800">
             Your Spaceships on{" "}
             {chainId && chainIdToNameMapping[chainId.network]}. Change your
             network to view your spaceships on other chains.
           </div>
-          <div className="flex flex-col w-full border border-black h-full flex-wrap overflow-x-auto">
+          <div className="flex flex-col w-full border border-black h-96 flex-wrap overflow-x-auto bg-neutral-600">
             {chainId && getUserSpaceships()}
           </div>
         </div>
@@ -303,10 +302,14 @@ function AttackPage({
           Galaxy: {chainId && chainIdToNameMapping[chainId.network]}
         </div>
       </div>
-      <div className="flex flex-col w-full border border-black h-96 items-center">
-        <div className="">Do you wish to attack X with a power of 4?</div>
+      <div className="flex flex-col w-full border border-black h-96 items-center bg-neutral-800">
+        {userSpaceshipSelection && ennemySpaceshipSelection ? (
+          <div className="">Proceed with the attack?</div>
+        ) : (
+          <div className="m-5">Select your fleet and an ennemy fleet</div>
+        )}
         <div className="flex flex-row w-full justify-center">
-          <div className="flex flex-col">
+          <div className="flex flex-col justify-center items-center">
             {userSpaceshipSelection ? (
               <div
                 className={
@@ -327,8 +330,10 @@ function AttackPage({
             )}
             <div>Your Fleet</div>
           </div>
-          <div>VS</div>
-          <div className="flex flex-col">
+          <div className="flex flex-col justify-center items-center mx-5">
+            VS
+          </div>
+          <div className="flex flex-col justify-center items-center">
             {ennemySpaceshipSelection ? (
               <div
                 className={

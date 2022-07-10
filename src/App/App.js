@@ -129,7 +129,12 @@ function App() {
   );
 
   return (
-    <div className="px-48">
+    <div
+      className="px-48"
+      style={{
+        backgroundImage: `url("./wallpaper2.jpeg")`,
+      }}
+    >
       <div className=" flex flex-col w-full items-end">
         <div className="w-48">
           <div className="relative dropdown">
@@ -166,6 +171,7 @@ function App() {
               id="dropdownMenuButton1"
               data-bs-toggle="dropdown"
               aria-expanded="false"
+              // className="text-white border border-neutral-800"
             >
               Network:{" "}
               {chain && chainIdToNameMapping[chain.network]
@@ -252,7 +258,9 @@ function App() {
         </div>
         {address ? (
           <>
-            <p>Connected: {address.slice(0, 5) + "..." + address.slice(-5)}</p>
+            <p className="text-white text-sm">
+              Connected: {address.slice(0, 5) + "..." + address.slice(-5)}
+            </p>
           </>
         ) : (
           <button onClick={() => connect()}>

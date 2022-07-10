@@ -21,8 +21,8 @@ function SpaceshipProfile({
     <div
       className={
         userSpaceshipSelection === details.tokenId
-          ? "flex flex-col w-full border border-4 border-blue-500 w-40 h-40 m-5 cursor-pointer"
-          : "flex flex-col w-full border border-black w-40 h-40 m-5 cursor-pointer"
+          ? "flex flex-col w-full border border-4 border-blue-500 w-32 h-32 m-5 cursor-pointer"
+          : "flex flex-col w-full border border-black w-32 h-32 m-5 cursor-pointer"
       }
       onClick={() => {
         if (details.tokenId === userSpaceshipSelection) {
@@ -36,13 +36,15 @@ function SpaceshipProfile({
       }}
     >
       <img src={imageUrl}></img>
-      <div>{details.tokenId}</div>
-      <div>{details.power}</div>
-      <div>{details.resource}</div>
-      <div>{details.missiles}</div>
-      <div>{details.shields}</div>
-      <div>{details.staked}</div>
-      <div>{details.inBattle}</div>
+      <div className="flex flex-row bg-neutral-800">
+        <div className="w-full">id:{details.tokenId}</div>
+        <div className="w-full">{details.power}</div>
+        <div className="w-full">{details.resource}</div>
+        <div className="w-full">{details.missiles}</div>
+        <div className="w-full">{details.shields}</div>
+        {/* <div>{details.staked}</div>
+        <div>{details.inBattle}</div> */}
+      </div>
     </div>
   );
 }
