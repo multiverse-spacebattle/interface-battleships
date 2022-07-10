@@ -4,5 +4,6 @@ export default {
   4002: "Fantom",
   80001: "Polygon",
   rinkeby: "Ethereum",
+  4: "Ethereum",
   97: "Binance",
 };

@@ -5,6 +5,8 @@ import SpaceshipProfile from "../SpaceshipProfile/SpaceshipProfile";
 import { useContractWrite } from "wagmi";
 import OmniChainNFT from "../Utils/OmniChainNFT.json";
 import chainIdToOmnichainNFTContract from "../Utils/chainIdToOmnichainNFTContract";
+import chainIdToNameMapping from "../Utils/chainIdToNameMapping";
+import chainIdToBridgeIdMapping from "../Utils/chainIdToBridgeIdMapping";
 
 function Traverse({
   chainId,
@@ -18,15 +20,27 @@ function Traverse({
   const [userSpaceshipDetails, setUserSpaceshipDetails] = useState(null);
   const [portal, setPortal] = useState(null);
 
-  const { data, isError, isLoading, write } = useContractWrite({
+  const traverse = useContractWrite({
     addressOrName: chainIdToOmnichainNFTContract[chainId.network],
     contractInterface: OmniChainNFT.abi,
     functionName: "crossChain",
     overrides: {
       value: ethers.utils.parseEther("3"),
     },
-    args: [10006, "0xDF4b5Ad7019181233Be95993De749e9Abb53Ca03", 2, 0],
+    args: [
+      chainIdToBridgeIdMapping[portal],
+      chainIdToOmnichainNFTContract[chainId.id],
+      userSpaceshipSelection,
+      0,
+    ],
   });
+
+  console.log([
+    chainIdToBridgeIdMapping[portal],
+    chainIdToOmnichainNFTContract[chainId.id],
+    userSpaceshipSelection,
+    0,
+  ]);
 
   const getUserSpaceships = () => {
     if (chainId.id === 4002) {
@@ -112,7 +126,7 @@ function Traverse({
                 ? "h-24 w-24 rounded-2xl border border-blue-400 border-4 cursor-pointer"
                 : "h-24 w-24 rounded-2xl cursor-pointer"
             }
-            onClick={() => setPortal("Ethereum")}
+            onClick={() => setPortal(4)}
           >
             <img src="./portal1.png" className="rounded-2xl"></img>
             <div>Ethereum</div>
@@ -123,7 +137,7 @@ function Traverse({
                 ? "h-24 w-24 rounded-2xl border border-blue-400 border-4 cursor-pointer"
                 : "h-24 w-24 rounded-2xl cursor-pointer"
             }
-            onClick={() => setPortal("Polygon")}
+            onClick={() => setPortal(80001)}
           >
             <img src="./portal2.png" className="rounded-2xl"></img>
             <div>Polygon</div>
@@ -134,7 +148,7 @@ function Traverse({
                 ? "h-24 w-24 rounded-2xl border border-blue-400 border-4 cursor-pointer"
                 : "h-24 w-24 rounded-2xl cursor-pointer"
             }
-            onClick={() => setPortal("Avalanche")}
+            onClick={() => setPortal(43113)}
           >
             <img src="./portal3.png" className="rounded-2xl"></img>
             <div>Avalanche</div>
@@ -145,7 +159,7 @@ function Traverse({
                 ? "h-24 w-24 rounded-2xl border border-blue-400 border-4 cursor-pointer"
                 : "h-24 w-24 rounded-2xl cursor-pointer"
             }
-            onClick={() => setPortal("Binance")}
+            onClick={() => setPortal(97)}
           >
             <img src="./portal4.png" className="rounded-2xl"></img>
             <div>Binance</div>
@@ -156,20 +170,27 @@ function Traverse({
                 ? "h-24 w-24 rounded-2xl border border-blue-400 border-4 cursor-pointer"
                 : "h-24 w-24 rounded-2xl cursor-pointer"
             }
-            onClick={() => setPortal("Fantom")}
+            onClick={() => setPortal(4002)}
           >
             <img src="./portal5.png" className="rounded-2xl"></img>
             <div>Fantom</div>
           </div>
         </div>
         <div className="flex flex-row w-full items-center justify-center">
-          <div className="border border-black mx-5">Ethereum</div>
+          <div className="border border-black mx-5">
+            {chainIdToNameMapping[chainId.id]}
+          </div>
           <div className="border border-black mx-5">to</div>
-          <div className="border border-black mx-5">Polygon</div>
+          <div className="border border-black mx-5">
+            {chainIdToNameMapping[portal]}
+          </div>
         </div>
       </div>
       <div className="w-full flex flex-row justify-center">
-        <button className="border border-black w-20" onClick={() => write()}>
+        <button
+          className="border border-black w-20"
+          onClick={() => traverse.write()}
+        >
           Traverse
         </button>
       </div>

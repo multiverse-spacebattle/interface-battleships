@@ -84,14 +84,14 @@ function App() {
   );
 
   const avalancheTestnetTokenIds = useGetAllSpaceships(
-    "0x164A49e1607Eb036091a4e530C7F53fF85eb42dB",
+    "0xf2E226D8ecc3A2c9412532724b1241886cDA4D63",
     {
       chainId: AvalancheTestnet.chainId,
     }
   );
 
   const avalancheTestnetTokenIdsOfUser = useGetAllSpaceshipsByOwner(
-    "0x164A49e1607Eb036091a4e530C7F53fF85eb42dB",
+    "0xf2E226D8ecc3A2c9412532724b1241886cDA4D63",
     address,
     {
       chainId: AvalancheTestnet.chainId,
