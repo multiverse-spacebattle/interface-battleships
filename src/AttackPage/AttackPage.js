@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { useContractWrite } from "wagmi";
+import { ethers } from "ethers";
 
 import SpaceshipProfile from "../SpaceshipProfile/SpaceshipProfile";
 import SpaceshipEnnemy from "../SpaceshipEnnemy/SpaceshipEnnemy";
@@ -39,6 +40,7 @@ function AttackPage({
     args: [userSpaceshipSelection, ennemySpaceshipSelection],
   });
 
+  console.log(userSpaceshipSelection, ennemySpaceshipSelection);
   const getUserSpaceships = () => {
     if (chainId.id === 4002) {
       return fantomTokenIdsOfUser.map((element, index) => {

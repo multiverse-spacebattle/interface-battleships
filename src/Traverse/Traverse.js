@@ -1,5 +1,11 @@
 import { useState } from "react";
+import { ethers } from "ethers";
 import SpaceshipProfile from "../SpaceshipProfile/SpaceshipProfile";
+
+import { useContractWrite } from "wagmi";
+import OmniChainNFT from "../Utils/OmniChainNFT.json";
+import chainIdToOmnichainNFTContract from "../Utils/chainIdToOmnichainNFTContract";
+
 function Traverse({
   chainId,
   fantomTokenIdsOfUser = [],
@@ -11,6 +17,16 @@ function Traverse({
   const [userSpaceshipSelection, setUserSpaceshipSelection] = useState(null);
   const [userSpaceshipDetails, setUserSpaceshipDetails] = useState(null);
   const [portal, setPortal] = useState(null);
+
+  const { data, isError, isLoading, write } = useContractWrite({
+    addressOrName: chainIdToOmnichainNFTContract[chainId.network],
+    contractInterface: OmniChainNFT.abi,
+    functionName: "crossChain",
+    overrides: {
+      value: ethers.utils.parseEther("3"),
+    },
+    args: [10006, "0xDF4b5Ad7019181233Be95993De749e9Abb53Ca03", 2, 0],
+  });
 
   const getUserSpaceships = () => {
     if (chainId.id === 4002) {
@@ -153,7 +169,9 @@ function Traverse({
         </div>
       </div>
       <div className="w-full flex flex-row justify-center">
-        <button className="border border-black w-20">Traverse</button>
+        <button className="border border-black w-20" onClick={() => write()}>
+          Traverse
+        </button>
       </div>
     </div>
   );

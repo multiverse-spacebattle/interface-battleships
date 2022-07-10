@@ -1,8 +1,13 @@
 import { useState } from "react";
+import { useContractWrite } from "wagmi";
 
 import SpaceshipProfile from "../SpaceshipProfile/SpaceshipProfile";
 import chainIdToImageMapping from "../Utils/chainIdToImageMapping";
 import chainIdToNameMapping from "../Utils/chainIdToNameMapping";
+
+import { ethers } from "ethers";
+import OmniChainNFT from "../Utils/OmniChainNFT.json";
+import chainIdToOmnichainNFTContract from "../Utils/chainIdToOmnichainNFTContract";
 
 function Mining({
   chainId,
@@ -14,6 +19,29 @@ function Mining({
 }) {
   const [userSpaceshipSelection, setUserSpaceshipSelection] = useState(null);
   const [userSpaceshipDetails, setUserSpaceshipDetails] = useState(null);
+
+  console.log(userSpaceshipDetails);
+
+  const { data, isError, isLoading, write } = useContractWrite({
+    addressOrName: chainIdToOmnichainNFTContract[chainId.network],
+    contractInterface: OmniChainNFT.abi,
+    functionName: "stake",
+    args: [userSpaceshipSelection],
+  });
+
+  const unstake = useContractWrite({
+    addressOrName: chainIdToOmnichainNFTContract[chainId.network],
+    contractInterface: OmniChainNFT.abi,
+    functionName: "unstake",
+    args: [userSpaceshipSelection],
+  });
+
+  const claim = useContractWrite({
+    addressOrName: chainIdToOmnichainNFTContract[chainId.network],
+    contractInterface: OmniChainNFT.abi,
+    functionName: "claim",
+    args: [userSpaceshipSelection],
+  });
 
   const getUserSpaceships = () => {
     if (chainId.id === 4002) {
@@ -89,13 +117,34 @@ function Mining({
           Galaxy: {chainIdToNameMapping[chainId.network]}
         </div>
       </div>
-      <div className="w-full h-24 border border-black">Details</div>
+      <div className="w-full h-12 border border-black">
+        Select your Spaceship:
+      </div>
       <div className="flex flex-col w-full border border-black h-40 flex-wrap overflow-x-auto">
         {chainId && getUserSpaceships()}
       </div>
       <div className="w-full flex flex-row justify-center">
-        <button className="border border-black w-20">Claim</button>
-        <button className="border border-black w-20">Mine</button>
+        {userSpaceshipDetails.staked ? (
+          <div>
+            {" "}
+            <button
+              className="border border-black w-20"
+              onClick={() => claim.write()}
+            >
+              Claim
+            </button>
+            <button
+              className="border border-black w-20"
+              onClick={() => unstake.write()}
+            >
+              Unstake
+            </button>
+          </div>
+        ) : (
+          <button className="border border-black w-20" onClick={() => write()}>
+            Stake
+          </button>
+        )}
       </div>
     </div>
   );
