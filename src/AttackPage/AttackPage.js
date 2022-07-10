@@ -350,7 +350,17 @@ function AttackPage({
             <div>Enemy Fleet</div>
           </div>
         </div>
-        <div className="">Odds of success is 33.33%</div>
+        {userSpaceshipDetails && ennemySpaceshipDetails ? (
+          <div className="">
+            Odds of winning the fight is{" "}
+            {(
+              ((userSpaceshipDetails.power * 1.1) /
+                (userSpaceshipDetails.power + ennemySpaceshipDetails.power)) *
+              100
+            ).toFixed(2)}
+            %
+          </div>
+        ) : null}
         <button className="border border-black w-20" onClick={() => write()}>
           Attack
         </button>
