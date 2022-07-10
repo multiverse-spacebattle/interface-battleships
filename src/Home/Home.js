@@ -27,7 +27,15 @@ const config: Config = {
   },
 };
 
-function Home({ chainId, userAddress }) {
+function Home({
+  chainId,
+  userAddress,
+  userEthereumSpaceships = 0,
+  userPolygonSpaceships = 0,
+  userBinanceSpaceships = 0,
+  userAvalancheSpaceships = 0,
+  userFantomSpaceships = 0,
+}) {
   const fantomTestnetBalance = useEtherBalance(address, {
     chainId: FantomTestnet.chainId,
   });
@@ -70,22 +78,6 @@ function Home({ chainId, userAddress }) {
 
   return (
     <div className="flex flex-col w-full items-center">
-      <div className="">
-        Balance on fantomTestnet Testnet:
-        <p className="">
-          {fantomTestnetBalance && formatEther(fantomTestnetBalance)} FTM
-        </p>
-      </div>
-      <div className="">
-        Balance on Avalanche Testnet:
-        <p className="">
-          {avalancheTestnetBalance && formatEther(avalancheTestnetBalance)} AVAX
-        </p>
-      </div>
-      <div className="balnce">
-        Balance on Polygon Testnet:
-        <p className="">{mumbaiBalance && formatEther(mumbaiBalance)} MATIC</p>
-      </div>
       <div>Welcome to the cross-chain pvp spaceship game</div>
       {chainId === undefined ? (
         <div className="flex flex-col w-full items-center">
@@ -93,20 +85,48 @@ function Home({ chainId, userAddress }) {
         </div>
       ) : (
         <div className="flex flex-col w-full items-center">
-          <div>You currently have 7 spaceships across 5 chains</div>
-          <div>Ethereum: 1 spaceship</div>
-          <div>Polygon: 1 spaceship</div>
-          <div>Binance: 1 spaceship</div>
-          <div>Avalanche: 2 spaceship</div>
-          <div>Fantom: 2 spaceship</div>
           <div>
-            You can mint your spaceship across any layer 1/2. Your NFT will be
-            minted on {chainIdToNameMapping[chainId]}
+            You currently have{" "}
+            {userEthereumSpaceships +
+              userPolygonSpaceships +
+              userBinanceSpaceships +
+              userAvalancheSpaceships +
+              userFantomSpaceships}{" "}
+            spaceships across 5 networks
+          </div>
+          <div>Ethereum: {userEthereumSpaceships} spaceship</div>
+          <div>Polygon: {userPolygonSpaceships} spaceship</div>
+          <div>Binance: {userBinanceSpaceships} spaceship</div>
+          <div>Avalanche: {userAvalancheSpaceships} spaceship</div>
+          <div>Fantom: {userFantomSpaceships} spaceship</div>
+          <div>
+            You can mint spaceships across any network. Your NFT will be minted
+            on {chainIdToNameMapping[chainId]}.
           </div>
           <div>
-            If you wish to mint on a different chain, please switch your network
+            If you wish to mint on a different chain, please switch your
+            network.
           </div>
           <button className="border border-black w-20">Mint</button>{" "}
+          <div className="">
+            Balance on fantomTestnet Testnet:
+            <p className="">
+              {fantomTestnetBalance && formatEther(fantomTestnetBalance)} FTM
+            </p>
+          </div>
+          <div className="">
+            Balance on Avalanche Testnet:
+            <p className="">
+              {avalancheTestnetBalance && formatEther(avalancheTestnetBalance)}{" "}
+              AVAX
+            </p>
+          </div>
+          <div className="balnce">
+            Balance on Polygon Testnet:
+            <p className="">
+              {mumbaiBalance && formatEther(mumbaiBalance)} MATIC
+            </p>
+          </div>
         </div>
       )}
     </div>

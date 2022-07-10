@@ -234,7 +234,14 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Home chainId={chainId} userAddress={userAddress} />}
+            element={
+              <Home
+                chainId={chainId}
+                userAddress={userAddress}
+                userFantomSpaceships={fantomTokenIdsOfUser.length}
+                userAvalancheSpaceships={avalancheTestnetTokenIdsOfUser.length}
+              />
+            }
           />
           <Route
             path="/attack"

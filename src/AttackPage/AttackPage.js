@@ -173,7 +173,10 @@ function AttackPage({
           <div className="flex flex-col w-full border border-black h-full flex-wrap overflow-x-auto">
             {getGalaxySpaceships()}
           </div>
-          <div>Your Spaceships:</div>
+          <div>
+            Your Spaceships on {chainIdToNameMapping[chainId]}. Change your
+            network to view your spaceships on other chains.
+          </div>
           <div className="flex flex-col w-full border border-black h-full flex-wrap overflow-x-auto">
             {avalancheTestnetTokenIdsOfUser.map((element, index) => {
               return (
