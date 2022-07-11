@@ -54,7 +54,8 @@ function Home({
 
   return (
     <div className="flex flex-col w-full items-center bg-neutral-800 h-full">
-      <div className="text-2xl text-amber-600 mt-10">
+      <div className="text-3xl text-amber-600 mt-10">EVM WARS</div>
+      <div className="text-2xl text-amber-600">
         Welcome to the first cross-chain battle royal game!
       </div>
       <img className="w-48 h-48" src="./level3.png"></img>
