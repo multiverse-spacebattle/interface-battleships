@@ -11,7 +11,7 @@ import chainIdToOmnichainNFTContract from "../Utils/chainIdToOmnichainNFTContrac
 import OmniChainNFT from "../Utils/OmniChainNFT.json";
 
 function AttackPage({
-  chainId = { network: 4 },
+  chainId = { network: 4, id: 4 },
   avalancheTestnetTokenIds = [],
   fantomTokenIds = [],
   binanceTestnetTokenIds = [],
@@ -46,6 +46,7 @@ function AttackPage({
       return fantomTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            chainId={chainId}
             setUserSpaceshipSelection={setUserSpaceshipSelection}
             userSpaceshipSelection={userSpaceshipSelection}
             details={element}
@@ -58,6 +59,7 @@ function AttackPage({
       return avalancheTestnetTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            chainId={chainId}
             setUserSpaceshipSelection={setUserSpaceshipSelection}
             userSpaceshipSelection={userSpaceshipSelection}
             details={element}
@@ -70,6 +72,7 @@ function AttackPage({
       return binanceTestnetTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            chainId={chainId}
             setUserSpaceshipSelection={setUserSpaceshipSelection}
             userSpaceshipSelection={userSpaceshipSelection}
             details={element}
@@ -82,6 +85,7 @@ function AttackPage({
       return rinkebyTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            chainId={chainId}
             setUserSpaceshipSelection={setUserSpaceshipSelection}
             userSpaceshipSelection={userSpaceshipSelection}
             details={element}
@@ -94,6 +98,7 @@ function AttackPage({
       return mumbaiTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            chainId={chainId}
             setUserSpaceshipSelection={setUserSpaceshipSelection}
             userSpaceshipSelection={userSpaceshipSelection}
             details={element}
@@ -110,6 +115,7 @@ function AttackPage({
       return fantomTokenIds.map((element, index) => {
         return (
           <SpaceshipEnnemy
+            chainId={chainId}
             setEnnemySpaceshipSelection={setEnnemySpaceshipSelection}
             setEnnemySpaceshipDetails={setEnnemySpaceshipDetails}
             ennemySpaceshipSelection={ennemySpaceshipSelection}
@@ -122,6 +128,7 @@ function AttackPage({
       return avalancheTestnetTokenIds.map((element, index) => {
         return (
           <SpaceshipEnnemy
+            chainId={chainId}
             setEnnemySpaceshipSelection={setEnnemySpaceshipSelection}
             setEnnemySpaceshipDetails={setEnnemySpaceshipDetails}
             ennemySpaceshipSelection={ennemySpaceshipSelection}
@@ -134,6 +141,7 @@ function AttackPage({
       return binanceTestnetTokenIds.map((element, index) => {
         return (
           <SpaceshipEnnemy
+            chainId={chainId}
             setEnnemySpaceshipSelection={setEnnemySpaceshipSelection}
             setEnnemySpaceshipDetails={setEnnemySpaceshipDetails}
             ennemySpaceshipSelection={ennemySpaceshipSelection}
@@ -146,6 +154,7 @@ function AttackPage({
       return rinkebyTokenIds.map((element, index) => {
         return (
           <SpaceshipEnnemy
+            chainId={chainId}
             setEnnemySpaceshipSelection={setEnnemySpaceshipSelection}
             setEnnemySpaceshipDetails={setEnnemySpaceshipDetails}
             ennemySpaceshipSelection={ennemySpaceshipSelection}
@@ -158,6 +167,7 @@ function AttackPage({
       return mumbaiTokenIds.map((element, index) => {
         return (
           <SpaceshipEnnemy
+            chainId={chainId}
             setEnnemySpaceshipSelection={setEnnemySpaceshipSelection}
             setEnnemySpaceshipDetails={setEnnemySpaceshipDetails}
             ennemySpaceshipSelection={ennemySpaceshipSelection}

@@ -45,6 +45,7 @@ function Upgrade({
       return fantomTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            chainId={chainId}
             setUserSpaceshipSelection={setUserSpaceshipSelection}
             userSpaceshipSelection={userSpaceshipSelection}
             details={element}
@@ -57,6 +58,7 @@ function Upgrade({
       return avalancheTestnetTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            chainId={chainId}
             setUserSpaceshipSelection={setUserSpaceshipSelection}
             userSpaceshipSelection={userSpaceshipSelection}
             details={element}
@@ -81,6 +83,7 @@ function Upgrade({
       return rinkebyTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            chainId={chainId}
             setUserSpaceshipSelection={setUserSpaceshipSelection}
             userSpaceshipSelection={userSpaceshipSelection}
             details={element}
@@ -93,6 +96,7 @@ function Upgrade({
       return mumbaiTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            chainId={chainId}
             setUserSpaceshipSelection={setUserSpaceshipSelection}
             userSpaceshipSelection={userSpaceshipSelection}
             details={element}

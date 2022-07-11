@@ -46,6 +46,7 @@ function Mining({
       return fantomTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            chainId={chainId}
             setUserSpaceshipSelection={setUserSpaceshipSelection}
             userSpaceshipSelection={userSpaceshipSelection}
             details={element}
@@ -58,6 +59,7 @@ function Mining({
       return avalancheTestnetTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            chainId={chainId}
             setUserSpaceshipSelection={setUserSpaceshipSelection}
             userSpaceshipSelection={userSpaceshipSelection}
             details={element}
@@ -70,6 +72,7 @@ function Mining({
       return binanceTestnetTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            chainId={chainId}
             setUserSpaceshipSelection={setUserSpaceshipSelection}
             userSpaceshipSelection={userSpaceshipSelection}
             details={element}
@@ -82,6 +85,7 @@ function Mining({
       return rinkebyTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            chainId={chainId}
             setUserSpaceshipSelection={setUserSpaceshipSelection}
             userSpaceshipSelection={userSpaceshipSelection}
             details={element}
@@ -94,6 +98,7 @@ function Mining({
       return mumbaiTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            chainId={chainId}
             setUserSpaceshipSelection={setUserSpaceshipSelection}
             userSpaceshipSelection={userSpaceshipSelection}
             details={element}

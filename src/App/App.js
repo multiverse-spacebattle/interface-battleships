@@ -54,14 +54,14 @@ function App() {
   };
 
   const binanceTestnetTokenIds = useGetAllSpaceships(
-    "0x52609775E5Ef6Dad4eCbe191838cd27528057fC6",
+    "0x782D4308c5E981288e300868774B91693cA29eCA",
     {
       chainId: 97,
     }
   );
 
   const binanceTestnetTokenIdsOfUser = useGetAllSpaceshipsByOwner(
-    "0x52609775E5Ef6Dad4eCbe191838cd27528057fC6",
+    "0x782D4308c5E981288e300868774B91693cA29eCA",
     address,
     {
       chainId: 97,
@@ -69,14 +69,14 @@ function App() {
   );
 
   const fantomTokenIds = useGetAllSpaceships(
-    "0x009aa615c0F45edd6d80613C72258daE532Fd283",
+    "0x78Df8cF8Bb8922b2BE5E5EB3DFc1B95A82800856",
     {
       chainId: FantomTestnet.chainId,
     }
   );
 
   const fantomTokenIdsOfUser = useGetAllSpaceshipsByOwner(
-    "0x009aa615c0F45edd6d80613C72258daE532Fd283",
+    "0x78Df8cF8Bb8922b2BE5E5EB3DFc1B95A82800856",
     address,
     {
       chainId: FantomTestnet.chainId,
@@ -84,14 +84,14 @@ function App() {
   );
 
   const avalancheTestnetTokenIds = useGetAllSpaceships(
-    "0xf2E226D8ecc3A2c9412532724b1241886cDA4D63",
+    "0xCacd5B636e678B1bAE56D167494Ae8AAa275a421",
     {
       chainId: AvalancheTestnet.chainId,
     }
   );
 
   const avalancheTestnetTokenIdsOfUser = useGetAllSpaceshipsByOwner(
-    "0xf2E226D8ecc3A2c9412532724b1241886cDA4D63",
+    "0xCacd5B636e678B1bAE56D167494Ae8AAa275a421",
     address,
     {
       chainId: AvalancheTestnet.chainId,
@@ -99,14 +99,14 @@ function App() {
   );
 
   const mumbaiTokenIds = useGetAllSpaceships(
-    "0x46f69DbE78a313E33287f1F15C4fE19Fb2a3C2a7",
+    "0x0850Bf3AB32d468000BE21AB5377C56204B1B6F2",
     {
       chainId: Mumbai.chainId,
     }
   );
 
   const mumbaiTokenIdsOfUser = useGetAllSpaceshipsByOwner(
-    "0x46f69DbE78a313E33287f1F15C4fE19Fb2a3C2a7",
+    "0x0850Bf3AB32d468000BE21AB5377C56204B1B6F2",
     address,
     {
       chainId: Mumbai.chainId,
@@ -114,14 +114,14 @@ function App() {
   );
 
   const rinkebyTokenIds = useGetAllSpaceships(
-    "0xDF4b5Ad7019181233Be95993De749e9Abb53Ca03",
+    "0x164A49e1607Eb036091a4e530C7F53fF85eb42dB",
     {
       chainId: Rinkeby.chainId,
     }
   );
 
   const rinkebyTokenIdsOfUser = useGetAllSpaceshipsByOwner(
-    "0xDF4b5Ad7019181233Be95993De749e9Abb53Ca03",
+    "0x164A49e1607Eb036091a4e530C7F53fF85eb42dB",
     address,
     {
       chainId: Rinkeby.chainId,

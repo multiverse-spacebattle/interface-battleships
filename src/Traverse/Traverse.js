@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import SpaceshipProfile from "../SpaceshipProfile/SpaceshipProfile";
 
-import { useContractWrite } from "wagmi";
+import { useContractWrite, useContractRead } from "wagmi";
 import OmniChainNFT from "../Utils/OmniChainNFT.json";
 import chainIdToOmnichainNFTContract from "../Utils/chainIdToOmnichainNFTContract";
 import chainIdToNameMapping from "../Utils/chainIdToNameMapping";
@@ -19,6 +19,7 @@ function Traverse({
   const [userSpaceshipSelection, setUserSpaceshipSelection] = useState(null);
   const [userSpaceshipDetails, setUserSpaceshipDetails] = useState(null);
   const [portal, setPortal] = useState(null);
+  const [portalFees, setPortalFees] = useState(0);
 
   const traverse = useContractWrite({
     addressOrName: chainIdToOmnichainNFTContract[chainId.network],
@@ -34,11 +35,32 @@ function Traverse({
       0,
     ],
   });
+
+  const getPortalFees = useContractRead({
+    addressOrName: chainIdToOmnichainNFTContract[chainId.network],
+    contractInterface: OmniChainNFT.abi,
+    functionName: "estimateBridgeFees",
+    args: [10006, "0xD9B65B667782936DCBbA6bF6521fCdd40cdc1393", 4, 0],
+  });
+
+  // useEffect(() => {
+  //   getPortalFees.data();
+  // }, []);
+
+  console.log([
+    chainIdToBridgeIdMapping[portal],
+    chainIdToOmnichainNFTContract[portal],
+    userSpaceshipSelection,
+    0,
+  ]);
+  console.log(getPortalFees);
+
   const getUserSpaceships = () => {
     if (chainId.id === 4002) {
       return fantomTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            chainId={chainId}
             setUserSpaceshipSelection={setUserSpaceshipSelection}
             userSpaceshipSelection={userSpaceshipSelection}
             details={element}
@@ -51,6 +73,7 @@ function Traverse({
       return avalancheTestnetTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            chainId={chainId}
             setUserSpaceshipSelection={setUserSpaceshipSelection}
             userSpaceshipSelection={userSpaceshipSelection}
             details={element}
@@ -63,6 +86,7 @@ function Traverse({
       return binanceTestnetTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            chainId={chainId}
             setUserSpaceshipSelection={setUserSpaceshipSelection}
             userSpaceshipSelection={userSpaceshipSelection}
             details={element}
@@ -75,6 +99,7 @@ function Traverse({
       return rinkebyTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            chainId={chainId}
             setUserSpaceshipSelection={setUserSpaceshipSelection}
             userSpaceshipSelection={userSpaceshipSelection}
             details={element}
@@ -87,6 +112,7 @@ function Traverse({
       return mumbaiTokenIdsOfUser.map((element, index) => {
         return (
           <SpaceshipProfile
+            chainId={chainId}
             setUserSpaceshipSelection={setUserSpaceshipSelection}
             userSpaceshipSelection={userSpaceshipSelection}
             details={element}
