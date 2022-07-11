@@ -8,7 +8,16 @@ import SpaceshipEnnemy from "../SpaceshipEnnemy/SpaceshipEnnemy";
 import chainIdToImageMapping from "../Utils/chainIdToImageMapping";
 import chainIdToNameMapping from "../Utils/chainIdToNameMapping";
 import chainIdToOmnichainNFTContract from "../Utils/chainIdToOmnichainNFTContract";
+import chainIdToBridgeIdMapping from "../Utils/chainIdToBridgeIdMapping";
 import OmniChainNFT from "../Utils/OmniChainNFT.json";
+
+const nameToIdMapping = {
+  Polygon: 80001,
+  Ethereum: 4,
+  Avalanche: 43113,
+  Binance: 97,
+  Fantom: 4002,
+};
 
 function AttackPage({
   chainId = { network: 4, id: 4 },
@@ -27,7 +36,9 @@ function AttackPage({
   const [ennemySpaceshipSelection, setEnnemySpaceshipSelection] =
     useState(null);
   const [userSpaceshipDetails, setUserSpaceshipDetails] = useState(null);
-  const [ennemySpaceshipDetails, setEnnemySpaceshipDetails] = useState(null);
+  const [ennemySpaceshipDetails, setEnnemySpaceshipDetails] = useState({
+    tokenId: 0,
+  });
   const [ennemyNetworkSwitchDropdown, setEnnemyNetworkSwitchDropdown] =
     useState(false);
 
@@ -40,7 +51,25 @@ function AttackPage({
     args: [userSpaceshipSelection, ennemySpaceshipSelection],
   });
 
-  console.log(userSpaceshipSelection, ennemySpaceshipSelection);
+  const crosschainMissile = useContractWrite({
+    addressOrName: chainIdToOmnichainNFTContract[chainId.network],
+    contractInterface: OmniChainNFT.abi,
+    functionName: "crossChain",
+    args: [
+      chainIdToBridgeIdMapping[nameToIdMapping[galaxy]],
+      chainIdToOmnichainNFTContract[nameToIdMapping[galaxy]],
+      userSpaceshipSelection,
+      ennemySpaceshipDetails.tokenId,
+    ],
+  });
+
+  console.log([
+    chainIdToBridgeIdMapping[nameToIdMapping[galaxy]],
+    chainIdToOmnichainNFTContract[nameToIdMapping[galaxy]],
+    userSpaceshipSelection,
+    ennemySpaceshipDetails.tokenId,
+  ]);
+
   const getUserSpaceships = () => {
     if (chainId.id === 4002) {
       return fantomTokenIdsOfUser.map((element, index) => {
@@ -387,7 +416,7 @@ function AttackPage({
         </div>
         {userSpaceshipDetails && ennemySpaceshipDetails ? (
           <div className="my-5">
-            Your odds of winning the fight is{" "}
+            Your odds of winning in a battle is{" "}
             <span className="text-amber-500">
               {(
                 ((userSpaceshipDetails.power * 1.1) /
@@ -398,12 +427,21 @@ function AttackPage({
             </span>
           </div>
         ) : null}
-        <button
-          className="bg-transparent hover:bg-amber-700 text-amber-700 font-semibold hover:text-white py-2 px-4 border border-amber-700 hover:border-transparent rounded mb-10"
-          onClick={() => write()}
-        >
-          Attack
-        </button>
+        {chainId.id === nameToIdMapping[galaxy] ? (
+          <button
+            className="bg-transparent hover:bg-amber-700 text-amber-700 font-semibold hover:text-white py-2 px-4 border border-amber-700 hover:border-transparent rounded mb-10"
+            onClick={() => write()}
+          >
+            Attack
+          </button>
+        ) : (
+          <button
+            className="bg-transparent hover:bg-amber-700 text-amber-700 font-semibold hover:text-white py-2 px-4 border border-amber-700 hover:border-transparent rounded mb-10"
+            onClick={() => crosschainMissile.write()}
+          >
+            {"Send Cross-chain Missile 😈"}
+          </button>
+        )}
       </div>
     </div>
   );
