@@ -9,9 +9,9 @@ function SpaceshipProfile({
   setUserSpaceshipDetails,
 }) {
   const [imageUrl, setImageUrl] = useState("");
-  console.log(
-    `https://nft-fleet-server.herokuapp.com/?chainId=${chainId.id}&power=${details.power}`
-  );
+  // console.log(
+  //   `https://nft-fleet-server.herokuapp.com/?chainId=${chainId.id}&power=${details.power}`
+  // );
   useEffect(() => {
     axios
       .get(

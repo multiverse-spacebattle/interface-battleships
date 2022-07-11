@@ -37,7 +37,7 @@ function Upgrade({
       userSpaceshipSelection,
     ],
   });
-  console.log(chainId);
+  // console.log(chainId);
 
   const getUserSpaceships = () => {
     if (chainId.id === 4002) {
