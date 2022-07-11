@@ -8,7 +8,7 @@ import chainIdToOmnichainNFTContract from "../Utils/chainIdToOmnichainNFTContrac
 import chainIdToNameMapping from "../Utils/chainIdToNameMapping";
 
 function Upgrade({
-  chainId,
+  chainId = { network: 4 },
   fantomTokenIdsOfUser = [],
   avalancheTestnetTokenIdsOfUser = [],
   rinkebyTokenIdsOfUser = [],
@@ -226,7 +226,7 @@ function Upgrade({
         </div>
       </div>
       <div className="bg-neutral-800 my-2 p-2">
-        Here are Spaceships on{" "}
+        Here are your Spaceships on{" "}
         <span className="text-amber-500">
           {chainId && chainIdToNameMapping[chainId.network]}
         </span>

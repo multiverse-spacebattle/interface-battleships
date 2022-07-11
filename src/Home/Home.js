@@ -25,7 +25,7 @@ import chainIdToOmnichainNFTContract from "../Utils/chainIdToOmnichainNFTContrac
 import { formatEther } from "@ethersproject/units";
 
 function Home({
-  chainId,
+  chainId = { network: 4 },
   address,
   userEthereumSpaceships = 0,
   userPolygonSpaceships = 0,

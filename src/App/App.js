@@ -131,7 +131,7 @@ function App() {
   return (
     <div className="px-48 h-full">
       <div className="h-full flex flex-col w-full items-end">
-        <div className="w-48 h-full">
+        <div className="h-full">
           <div className="relative dropdown">
             <button
               onClick={() => {

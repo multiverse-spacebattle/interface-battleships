@@ -11,7 +11,7 @@ import chainIdToOmnichainNFTContract from "../Utils/chainIdToOmnichainNFTContrac
 import OmniChainNFT from "../Utils/OmniChainNFT.json";
 
 function AttackPage({
-  chainId,
+  chainId = { network: 4 },
   avalancheTestnetTokenIds = [],
   fantomTokenIds = [],
   binanceTestnetTokenIds = [],
@@ -275,7 +275,7 @@ function AttackPage({
             {getGalaxySpaceships()}
           </div>
           <div className="bg-neutral-800 my-2 p-2">
-            Here are Spaceships on{" "}
+            Here are your Spaceships on{" "}
             <span className="text-amber-500">
               {chainId && chainIdToNameMapping[chainId.network]}
             </span>

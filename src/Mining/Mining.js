@@ -10,7 +10,7 @@ import OmniChainNFT from "../Utils/OmniChainNFT.json";
 import chainIdToOmnichainNFTContract from "../Utils/chainIdToOmnichainNFTContract";
 
 function Mining({
-  chainId,
+  chainId = { network: 4 },
   fantomTokenIdsOfUser = [],
   avalancheTestnetTokenIdsOfUser = [],
   rinkebyTokenIdsOfUser = [],
@@ -116,7 +116,7 @@ function Mining({
         </div>
       </div>
       <div className="w-full h-12 border-800 mt-5  my-2 p-2">
-        Here are Spaceships on{" "}
+        Here are your Spaceships on{" "}
         <span className="text-amber-500">
           {chainId && chainIdToNameMapping[chainId.network]}
         </span>

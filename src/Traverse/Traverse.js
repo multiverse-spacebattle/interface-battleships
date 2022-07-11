@@ -9,7 +9,7 @@ import chainIdToNameMapping from "../Utils/chainIdToNameMapping";
 import chainIdToBridgeIdMapping from "../Utils/chainIdToBridgeIdMapping";
 
 function Traverse({
-  chainId,
+  chainId = { network: 4 },
   fantomTokenIdsOfUser = [],
   avalancheTestnetTokenIdsOfUser = [],
   rinkebyTokenIdsOfUser = [],
@@ -106,7 +106,7 @@ function Traverse({
         </div>
       </div>
       <div className="w-full h-12 border-800 mt-5  my-2 p-2">
-        Here are Spaceships on{" "}
+        Here are your Spaceships on{" "}
         <span className="text-amber-500">
           {chainId && chainIdToNameMapping[chainId.network]}
         </span>
@@ -117,7 +117,13 @@ function Traverse({
       </div>
       <div className="w-full h-full mb-5">
         <div className="px-2 my-2">
-          Travel from Ethereum to Avalanche Galaxy
+          Travel from{" "}
+          <span className="text-amber-500">
+            {chainIdToNameMapping[chainId.id]}
+          </span>{" "}
+          to{" "}
+          <span className="text-blue-500">{chainIdToNameMapping[portal]}</span>{" "}
+          Galaxy
         </div>
         <div className="flex flex-row w-full items-center justify-around">
           <div
