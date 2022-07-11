@@ -101,15 +101,14 @@ function Traverse({
   return (
     <div className="flex flex-col w-full bg-neutral-800">
       <div className="flex flex-row">
-        <div className="w-full h-96 border border-black">
+        <div className="border border-black">
           <img src={"./illustration 2.png"}></img>
         </div>
       </div>
-      <div className="w-full h-24 border border-black">Details</div>
       <div className="flex flex-col w-full border border-black h-40 flex-wrap overflow-x-auto">
         {chainId && getUserSpaceships()}
       </div>
-      <div className="w-full border border-black">
+      <div className="w-full h-full border border-black">
         <div>Travel from Ethereum to Avalanche Galaxy</div>
         <div className="flex flex-row w-full items-center justify-around">
           <div
@@ -168,7 +167,7 @@ function Traverse({
             <div>Fantom</div>
           </div>
         </div>
-        <div className="flex flex-row w-full items-center justify-center">
+        <div className="flex flex-row w-full mt-5  items-center justify-center">
           <div className="border border-black mx-5">
             {chainIdToNameMapping[chainId.id]}
           </div>

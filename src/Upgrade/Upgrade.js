@@ -106,68 +106,86 @@ function Upgrade({
   return (
     <div className="flex flex-col w-full bg-neutral-800">
       <div className="flex flex-row">
-        <div className="w-2/4 h-96 border border-black">
-          <div
-            className={
-              itemSelection === "Upgrade"
-                ? "border border-blue-400 border-4 w-24 h-24 m-2 items-center justify-center cursor-pointer"
-                : "w-24 h-24 m-2 items-center justify-center cursor-pointer"
-            }
-            onClick={() => setItemSelection("Upgrade")}
-          >
-            <img src="./upgrade.png" className="border rounded-2xl"></img>
-            <div className="w-full text-center">Upgrade</div>
-          </div>
-          <div>Evolutions</div>
+        <div className="w-2/4 h-96 p-5 border border-black">
+          <div className="mb-5">{"Evolutions(based on power)"}</div>
           <div className="flex flex-row">
-            <div className="w-32 h-32 m-2 items-center justify-center">
-              <img src="./level1.png" className="border"></img>
-              <div className="w-full text-center">Level 1</div>
+            <div className="w-32 h-32 mr-2 items-center justify-center">
+              <img
+                src="./level1.png"
+                className="border border-neutral-500"
+              ></img>
+              <div className="w-full text-center">Power 2</div>
             </div>
-            <div className="w-32 h-32 m-2 items-center justify-center">
-              <img src="./level2.png" className="border"></img>
-              <div className="w-full text-center">Level 2</div>
+            <div className="w-32 h-32 mr-2 items-center justify-center">
+              <img
+                src="./level2.png"
+                className=" border border-neutral-500"
+              ></img>
+              <div className="w-full text-center">Power 6</div>
             </div>
-            <div className="w-32 h-32 m-2 items-center justify-center">
-              <img src="./level3.png" className="border"></img>
-              <div className="w-full text-center">Level 3</div>
+            <div className="w-32 h-32 mr-2 items-center justify-center">
+              <img
+                src="./level3.png"
+                className="border border-neutral-500"
+              ></img>
+              <div className="w-full text-center">Power 10</div>
             </div>
-            <div className="w-32 h-32 m-2 items-center justify-center">
-              <img src="./level4.png" className="border"></img>
-              <div className="w-full text-center">Level 4</div>
+            <div className="w-32 h-32 mr-2 items-center justify-center">
+              <img
+                src="./level4.png"
+                className="border border-neutral-500"
+              ></img>
+              <div className="w-full text-center">Power 16</div>
             </div>
-            <div className="w-32 h-32 m-2 items-center justify-center">
-              <img src="./level5.png" className="border"></img>
-              <div className="w-full text-center">Level 5</div>
+            <div className="w-32 h-32 mr-2 items-center justify-center">
+              <img
+                src="./level5.png"
+                className="border border-neutral-500"
+              ></img>
+              <div className="w-full text-center">Power 24</div>
             </div>
           </div>
         </div>
-        <div className="w-2/4 h-96 border border-black flex flex-row">
-          <div
-            className={
-              itemSelection === "Missile"
-                ? "border border-blue-400 border-4 w-24 h-24 m-2 items-center justify-center cursor-pointer"
-                : "w-24 h-24 m-2 items-center justify-center cursor-pointer"
-            }
-            onClick={() => setItemSelection("Missile")}
-          >
-            <img src="./missile.png" className="border rounded-2xl"></img>
-            <div className="w-full text-center">Missile</div>
+
+        <div className="w-2/4 h-96 border border-black flex flex-col p-5">
+          <div className="flex flex-row">
+            <div
+              className={
+                itemSelection === "Missile"
+                  ? "border border-blue-400 border-4 w-24 h-24 m-2 items-center justify-center cursor-pointer"
+                  : "w-24 h-24 m-2 items-center justify-center cursor-pointer"
+              }
+              onClick={() => setItemSelection("Missile")}
+            >
+              <img src="./missile.png" className="border rounded-2xl"></img>
+              <div className="w-full text-center">Missile</div>
+            </div>
+            <div
+              className={
+                itemSelection === "Shield"
+                  ? "border border-blue-400 border-4 w-24 h-24 m-2 items-center justify-center cursor-pointer"
+                  : "w-24 h-24 m-2 items-center justify-center cursor-pointer"
+              }
+              onClick={() => setItemSelection("Shield")}
+            >
+              <img src="./bubble.png" className="border rounded-2xl"></img>
+              <div className="w-full text-center">Shield</div>
+            </div>
+            <div
+              className={
+                itemSelection === "Upgrade"
+                  ? "border border-blue-400 border-4 w-24 h-24 m-2 items-center justify-center cursor-pointer"
+                  : "w-24 h-24 m-2 items-center justify-center cursor-pointer"
+              }
+              onClick={() => setItemSelection("Upgrade")}
+            >
+              <img src="./upgrade.png" className="border rounded-2xl"></img>
+              <div className="w-full text-center">Upgrade</div>
+            </div>
           </div>
-          <div
-            className={
-              itemSelection === "Shield"
-                ? "border border-blue-400 border-4 w-24 h-24 m-2 items-center justify-center cursor-pointer"
-                : "w-24 h-24 m-2 items-center justify-center cursor-pointer"
-            }
-            onClick={() => setItemSelection("Shield")}
-          >
-            <img src="./bubble.png" className="border rounded-2xl"></img>
-            <div className="w-full text-center">Shield</div>
-          </div>
-          <div className="flex justify-center">
-            <div className="mb-3 xl:w-96">
-              <label className="form-label inline-block mb-2 text-gray-700">
+          <div className="mt-5">
+            <div className=" xl:w-96">
+              <label className="form-label inline-block mb-2 text-amber-500">
                 Quantity
               </label>
               <input
@@ -183,13 +201,13 @@ function Upgrade({
         text-base
         font-normal
         text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
+        bg-neutral-500 bg-clip-padding
+        border border-solid border-amber-600
         rounded
         transition
         ease-in-out
         m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+        focus:text-gray-900 focus:bg-neutral-500 focus:border-amber-600 focus:outline-none
       "
                 id="exampleFormControlInput1"
                 placeholder="Quantity"
