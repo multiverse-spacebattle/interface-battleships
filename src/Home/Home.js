@@ -53,29 +53,41 @@ function Home({
   });
 
   return (
-    <div className="flex flex-col w-full items-center">
-      <div>Welcome to the cross-chain pvp spaceship game</div>
+    <div className="flex flex-col w-full items-center bg-neutral-800 h-full">
+      <div className="text-2xl text-amber-600">
+        Welcome to the first cross-chain battle royal game!
+      </div>
       {chainId === undefined ? (
-        <div className="flex flex-col w-full items-center">
+        <div className="flex flex-col w-full items-center text-white">
           Please connect to your wallet to get started!
         </div>
       ) : (
-        <div className="flex flex-col w-full items-center">
-          <div>
+        <div className="flex flex-col w-full items-center text-white">
+          <div className="mt-5">
             You currently have{" "}
             {userEthereumSpaceships +
               userPolygonSpaceships +
               userBinanceSpaceships +
               userAvalancheSpaceships +
               userFantomSpaceships}{" "}
-            spaceships across 5 networks
+            spaceships across 5 networks:
           </div>
-          <div>Ethereum: {userEthereumSpaceships} spaceship</div>
-          <div>Polygon: {userPolygonSpaceships} spaceship</div>
-          <div>Binance: {userBinanceSpaceships} spaceship</div>
-          <div>Avalanche: {userAvalancheSpaceships} spaceship</div>
-          <div>Fantom: {userFantomSpaceships} spaceship</div>
-          <div>
+          <div className="text-sm">
+            Ethereum: {userEthereumSpaceships} {"spaceship(s)"}
+          </div>
+          <div className="text-sm">
+            Polygon: {userPolygonSpaceships} {"spaceship(s)"}
+          </div>
+          <div className="text-sm">
+            Binance: {userBinanceSpaceships} {"spaceship(s)"}
+          </div>
+          <div className="text-sm">
+            Avalanche: {userAvalancheSpaceships} {"spaceship(s)"}
+          </div>
+          <div className="text-sm">
+            Fantom: {userFantomSpaceships} {"spaceship(s)"}
+          </div>
+          <div className="mt-5">
             You can mint spaceships across any network. Your NFT will be minted
             on {chainIdToNameMapping[chainId.network]}.
           </div>
@@ -83,10 +95,13 @@ function Home({
             If you wish to mint on a different chain, please switch your
             network.
           </div>
-          <button className="border border-black w-20" onClick={() => write()}>
+          <button
+            className="my-5 border border-black w-20"
+            onClick={() => write()}
+          >
             Mint
           </button>{" "}
-          <div className="">
+          {/* <div className="">
             Balance on fantomTestnet Testnet:
             <p className="">
               {fantomTestnetBalance && formatEther(fantomTestnetBalance)} FTM
@@ -104,7 +119,7 @@ function Home({
             <p className="">
               {mumbaiBalance && formatEther(mumbaiBalance)} MATIC
             </p>
-          </div>
+          </div> */}
         </div>
       )}
     </div>

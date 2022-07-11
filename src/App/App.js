@@ -130,13 +130,13 @@ function App() {
 
   return (
     <div
-      className="px-48"
+      className="px-48 h-full"
       style={{
         backgroundImage: `url("./wallpaper2.jpeg")`,
       }}
     >
-      <div className=" flex flex-col w-full items-end">
-        <div className="w-48">
+      <div className="h-full flex flex-col w-full items-end">
+        <div className="w-48 h-full">
           <div className="relative dropdown">
             <button
               onClick={() => {
@@ -268,7 +268,6 @@ function App() {
           </button>
         )}
       </div>
-
       <Router>
         <Header />
         <Routes>
