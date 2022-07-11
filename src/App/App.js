@@ -175,12 +175,12 @@ function App() {
             </button>
             {networkSwitchDropdown && (
               <ul
-                className="float-left w-full py-2 m-0 mt-1 text-base text-center list-none bg-white border-none rounded-lg shadow-lg dropdown-menu min-w-max bg-clip-padding absolute"
+                className="float-left w-full py-2 m-0 mt-1 text-base text-center list-none bg-neutral-500 border-none rounded-lg shadow-lg dropdown-menu min-w-max bg-clip-padding absolute"
                 aria-labelledby="dropdownMenuButton1"
               >
                 <li>
                   <a
-                    className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
+                    className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-neutral-800"
                     href="#"
                     onClick={() => changeNetwork(80001)}
                   >
@@ -189,7 +189,7 @@ function App() {
                 </li>
                 <li>
                   <a
-                    className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
+                    className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-neutral-800"
                     href="#"
                     onClick={() => changeNetwork(4002)}
                   >
@@ -198,7 +198,7 @@ function App() {
                 </li>
                 <li>
                   <a
-                    className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
+                    className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-neutral-800"
                     href="#"
                     onClick={() => changeNetwork(43113)}
                   >
@@ -207,7 +207,7 @@ function App() {
                 </li>
                 <li>
                   <a
-                    className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
+                    className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-neutral-800"
                     href="#"
                     onClick={() => changeNetwork(97)}
                   >
@@ -216,7 +216,7 @@ function App() {
                 </li>
                 <li>
                   <a
-                    className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
+                    className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-neutral-800"
                     href="#"
                     onClick={() => changeNetwork(4)}
                   >
@@ -225,7 +225,7 @@ function App() {
                 </li>
                 <li>
                   <a
-                    className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
+                    className="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-neutral-800"
                     href="#"
                     onClick={() => disconnect()}
                   >
