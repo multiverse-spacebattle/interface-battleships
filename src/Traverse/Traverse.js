@@ -128,7 +128,7 @@ function Traverse({
     <div className="flex flex-col w-full bg-neutral-800">
       <div className="flex flex-row">
         <div className="border border-black">
-          <img src={"./illustration2.png"}></img>
+          <img src={"./cover2.png"}></img>
         </div>
       </div>
       <div className="w-full h-12 border-800 mt-5  my-2 p-2">

@@ -113,7 +113,7 @@ function Mining({
     <div className="flex flex-col w-full bg-neutral-800">
       <div className="flex flex-row">
         <div className="w-3/4 border border-black">
-          <img src="./illustration3.png"></img>
+          <img src="./cover3.png"></img>
         </div>
         <div className="w-1/4 border border-black bg-neutral-800">
           <img src={chainIdToImageMapping[chainId.network]}></img>
