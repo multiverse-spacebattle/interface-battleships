@@ -148,6 +148,28 @@ function Upgrade({
               <div className="w-full text-center">Power 24</div>
             </div>
           </div>
+          <div className="mt-5">
+            <span className="text-amber-500">
+              {"Missile (cost 2 resources):"}
+            </span>
+            {
+              " can only be to attack another fleet cross-chain. It will lower their power by 2, or destroy the spaceship if their power goes below 2."
+            }
+          </div>
+          <div className="mt-2">
+            <span className="text-amber-500">
+              {"Shield (cost 2 resources):"}
+            </span>
+            {
+              " shield will be consumed if someone attacks you with a cross-chain missile."
+            }
+          </div>
+          <div className="mt-2">
+            <span className="text-amber-500">
+              {"Upgrade (cost 2 resources):"}
+            </span>
+            {" upgrades your power by 2."}
+          </div>
         </div>
 
         <div className="w-2/4 h-96 border border-black flex flex-col p-5">

@@ -327,6 +327,9 @@ function AttackPage({
         <div className="flex flex-col w-1/4 border border-black h-ful">
           <img src={chainId && chainIdToImageMapping[chainId.network]}></img>
           Galaxy: {chainId && chainIdToNameMapping[chainId.network]}
+          <div className="text-amber-500">
+            Being the attacker gives you a 10% boost in your total power!
+          </div>
         </div>
       </div>
       <div className="flex flex-col w-full border border-black h-96 items-center bg-neutral-800">

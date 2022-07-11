@@ -118,6 +118,13 @@ function Mining({
         <div className="w-1/4 border border-black bg-neutral-800">
           <img src={chainIdToImageMapping[chainId.network]}></img>
           Galaxy: {chainIdToNameMapping[chainId.network]}
+          <div>Number of Spaceships: 21</div>
+          <div>Number of Stakers: 10</div>
+          <div>Mining Rate: 6 Resource / day</div>
+          <div className="text-amber-500">
+            Staking will lower your power by 20%, making you more vulnerable to
+            attacks
+          </div>
         </div>
       </div>
       <div className="w-full h-12 border-800 mt-5 my-2 p-2">
