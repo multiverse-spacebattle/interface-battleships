@@ -5,6 +5,7 @@ import { useContractWrite } from "wagmi";
 import { ethers } from "ethers";
 import OmniChainNFT from "../Utils/OmniChainNFT.json";
 import chainIdToOmnichainNFTContract from "../Utils/chainIdToOmnichainNFTContract";
+import chainIdToNameMapping from "../Utils/chainIdToNameMapping";
 
 function Upgrade({
   chainId,
@@ -214,9 +215,24 @@ function Upgrade({
               />
             </div>
           </div>
+          <div>
+            Spaceship Available Resource:{" "}
+            <span className="text-amber-500">
+              {userSpaceshipDetails
+                ? userSpaceshipDetails.resource
+                : "Select a spaceship"}
+            </span>
+          </div>
         </div>
       </div>
-      <div className="flex flex-col w-full border border-black h-40 flex-wrap overflow-x-auto">
+      <div className="bg-neutral-800 my-2 p-2">
+        Here are Spaceships on{" "}
+        <span className="text-amber-500">
+          {chainId && chainIdToNameMapping[chainId.network]}
+        </span>
+        . Change your network to view your spaceships on other chains.
+      </div>
+      <div className="flex flex-col w-full border border-black h-40 flex-wrap overflow-x-auto bg-neutral-500">
         {chainId && getUserSpaceships()}
       </div>
       <div className="flex flex-row w-full h-24 border border-black justify-center items-center">

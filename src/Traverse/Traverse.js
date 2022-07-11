@@ -105,11 +105,20 @@ function Traverse({
           <img src={"./illustration 2.png"}></img>
         </div>
       </div>
-      <div className="flex flex-col w-full border border-black h-40 flex-wrap overflow-x-auto">
+      <div className="w-full h-12 border-800 mt-5  my-2 p-2">
+        Here are Spaceships on{" "}
+        <span className="text-amber-500">
+          {chainId && chainIdToNameMapping[chainId.network]}
+        </span>
+        . Change your network to view your spaceships on other chains.
+      </div>
+      <div className="flex flex-col w-full border border-black bg-neutral-500 h-40 flex-wrap overflow-x-auto">
         {chainId && getUserSpaceships()}
       </div>
-      <div className="w-full h-full border border-black">
-        <div>Travel from Ethereum to Avalanche Galaxy</div>
+      <div className="w-full h-full mb-5">
+        <div className="px-2 my-2">
+          Travel from Ethereum to Avalanche Galaxy
+        </div>
         <div className="flex flex-row w-full items-center justify-around">
           <div
             className={
@@ -167,7 +176,7 @@ function Traverse({
             <div>Fantom</div>
           </div>
         </div>
-        <div className="flex flex-row w-full mt-5  items-center justify-center">
+        {/* <div className="flex flex-row w-full mt-5  items-center justify-center mt-5">
           <div className="border border-black mx-5">
             {chainIdToNameMapping[chainId.id]}
           </div>
@@ -175,9 +184,9 @@ function Traverse({
           <div className="border border-black mx-5">
             {chainIdToNameMapping[portal]}
           </div>
-        </div>
+        </div> */}
       </div>
-      <div className="flex flex-row w-full justify-center items-center">
+      <div className="flex flex-row w-full justify-center items-center my-5">
         <button
           className="bg-transparent hover:bg-amber-700 text-amber-700 font-semibold hover:text-white py-2 px-4 border border-amber-700 hover:border-transparent rounded"
           onClick={() => traverse.write()}

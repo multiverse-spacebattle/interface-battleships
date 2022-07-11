@@ -115,10 +115,14 @@ function Mining({
           Galaxy: {chainIdToNameMapping[chainId.network]}
         </div>
       </div>
-      <div className="w-full h-12 border border-black bg-neutral-800">
-        Select your Spaceship:
+      <div className="w-full h-12 border-800 mt-5  my-2 p-2">
+        Here are Spaceships on{" "}
+        <span className="text-amber-500">
+          {chainId && chainIdToNameMapping[chainId.network]}
+        </span>
+        . Change your network to view your spaceships on other chains.
       </div>
-      <div className="flex flex-col w-full border border-black h-40 flex-wrap overflow-x-auto bg-neutral-800">
+      <div className="flex flex-col w-full border border-black h-40 flex-wrap overflow-x-auto bg-neutral-500">
         {chainId && getUserSpaceships()}
       </div>
       <div className="w-full flex flex-row justify-center">
