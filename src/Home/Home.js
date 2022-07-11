@@ -58,6 +58,16 @@ function Home({
       <div className="text-2xl text-amber-600">
         Welcome to the first cross-chain battle royal game!
       </div>
+      <div className="">
+        Request some testnet tokens from different faucets and start playing.
+        You can find the rules of the game here:{" "}
+        <a
+          className="text-blue-500"
+          href=" https://www.notion.so/Cross-chain-Game-Rule-Book-4b82d9d95d0344e694d4345aad63d00a"
+        >
+          link
+        </a>
+      </div>
       <img className="w-48 h-48" src="./level3.png"></img>
       {chainId === undefined ? (
         <div className="flex flex-col w-full items-center text-white">
