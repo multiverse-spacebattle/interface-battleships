@@ -274,10 +274,12 @@ function AttackPage({
           <div className="flex flex-row w-full border border-black h-full overflow-x-auto bg-neutral-700">
             {getGalaxySpaceships()}
           </div>
-          <div className="bg-neutral-800 my-2">
-            Your Spaceships on{" "}
-            {chainId && chainIdToNameMapping[chainId.network]}. Change your
-            network to view your spaceships on other chains.
+          <div className="bg-neutral-800 my-2 p-2">
+            Here are Spaceships on{" "}
+            <span className="text-amber-500">
+              {chainId && chainIdToNameMapping[chainId.network]}
+            </span>
+            . Change your network to view your spaceships on other chains.
           </div>
           <div className="flex flex-col w-full border border-black h-96 overflow-x-auto bg-neutral-500">
             {chainId && getUserSpaceships()}
@@ -290,7 +292,9 @@ function AttackPage({
       </div>
       <div className="flex flex-col w-full border border-black h-96 items-center bg-neutral-800">
         {userSpaceshipSelection && ennemySpaceshipSelection ? (
-          <div className="mt-5">Proceed with the attack?</div>
+          <div className="mt-5 text-lg text-amber-500">
+            Proceed with the attack?
+          </div>
         ) : (
           <div className="m-5">Select your fleet and an ennemy fleet</div>
         )}
@@ -299,17 +303,32 @@ function AttackPage({
             {userSpaceshipSelection ? (
               <div
                 className={
-                  "flex flex-col w-full border border-black w-40 h-40 m-5 cursor-pointer"
+                  "flex flex-row border border-neutral-500 m-5 cursor-pointer"
                 }
               >
-                <img src={userSpaceshipDetails.imageUrl}></img>
-                <div>{userSpaceshipDetails.tokenId}</div>
-                <div>{userSpaceshipDetails.power}</div>
-                <div>{userSpaceshipDetails.resource}</div>
-                <div>{userSpaceshipDetails.missiles}</div>
-                <div>{userSpaceshipDetails.shields}</div>
-                <div>{userSpaceshipDetails.staked}</div>
-                <div>{userSpaceshipDetails.inBattle}</div>
+                <img
+                  src={userSpaceshipDetails.imageUrl}
+                  className="w-40 h-40"
+                ></img>
+                <div className="p-2">
+                  <div className="text-sm">
+                    ID: {userSpaceshipDetails.tokenId}
+                  </div>
+                  <div className="text-sm">
+                    Power: {userSpaceshipDetails.power}
+                  </div>
+                  <div className="text-sm">
+                    Resource: {userSpaceshipDetails.resource}
+                  </div>
+                  <div className="text-sm">
+                    Missiles: {userSpaceshipDetails.missiles}
+                  </div>
+                  <div className="text-sm">
+                    Shields: {userSpaceshipDetails.shields}
+                  </div>
+                  {/* <div>{userSpaceshipDetails.staked}</div>
+                <div>{userSpaceshipDetails.inBattle}</div> */}
+                </div>
               </div>
             ) : (
               <div className="h-40 w-40 border border-black"></div>
@@ -323,17 +342,32 @@ function AttackPage({
             {ennemySpaceshipSelection ? (
               <div
                 className={
-                  "flex flex-col w-full border border-black w-40 h-40 m-5 cursor-pointer"
+                  "flex flex-row border border-neutral-500 m-5 cursor-pointer"
                 }
               >
-                <img src={ennemySpaceshipDetails.imageUrl}></img>
-                <div>{ennemySpaceshipDetails.tokenId}</div>
-                <div>{ennemySpaceshipDetails.power}</div>
-                <div>{ennemySpaceshipDetails.resource}</div>
-                <div>{ennemySpaceshipDetails.missiles}</div>
-                <div>{ennemySpaceshipDetails.shields}</div>
-                <div>{ennemySpaceshipDetails.staked}</div>
-                <div>{ennemySpaceshipDetails.inBattle}</div>
+                <img
+                  src={ennemySpaceshipDetails.imageUrl}
+                  className="w-40 h-40"
+                ></img>
+                <div className="p-2">
+                  <div className="text-sm">
+                    ID: {ennemySpaceshipDetails.tokenId}
+                  </div>
+                  <div className="text-sm">
+                    Power: {ennemySpaceshipDetails.power}
+                  </div>
+                  <div className="text-sm">
+                    Resource: {ennemySpaceshipDetails.resource}
+                  </div>
+                  <div className="text-sm">
+                    Missiles: {ennemySpaceshipDetails.missiles}
+                  </div>
+                  <div className="text-sm">
+                    Shields: {ennemySpaceshipDetails.shields}
+                  </div>
+                  {/* <div>{userSpaceshipDetails.staked}</div>
+              <div>{userSpaceshipDetails.inBattle}</div> */}
+                </div>
               </div>
             ) : (
               <div className="h-40 w-40 border border-black"></div>
@@ -342,18 +376,20 @@ function AttackPage({
           </div>
         </div>
         {userSpaceshipDetails && ennemySpaceshipDetails ? (
-          <div className="">
-            Odds of winning the fight is{" "}
-            {(
-              ((userSpaceshipDetails.power * 1.1) /
-                (userSpaceshipDetails.power + ennemySpaceshipDetails.power)) *
-              100
-            ).toFixed(2)}
-            %
+          <div className="my-5">
+            Your odds of winning the fight is{" "}
+            <span className="text-amber-500">
+              {(
+                ((userSpaceshipDetails.power * 1.1) /
+                  (userSpaceshipDetails.power + ennemySpaceshipDetails.power)) *
+                100
+              ).toFixed(2)}
+              %
+            </span>
           </div>
         ) : null}
         <button
-          className="bg-transparent hover:bg-amber-700 text-amber-700 font-semibold hover:text-white py-2 px-4 border border-amber-700 hover:border-transparent rounded"
+          className="bg-transparent hover:bg-amber-700 text-amber-700 font-semibold hover:text-white py-2 px-4 border border-amber-700 hover:border-transparent rounded mb-10"
           onClick={() => write()}
         >
           Attack
