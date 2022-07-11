@@ -144,7 +144,7 @@ function AttackPage({
       return fantomTokenIds.map((element, index) => {
         return (
           <SpaceshipEnnemy
-            chainId={chainId}
+            chainId={nameToIdMapping[galaxy]}
             setEnnemySpaceshipSelection={setEnnemySpaceshipSelection}
             setEnnemySpaceshipDetails={setEnnemySpaceshipDetails}
             ennemySpaceshipSelection={ennemySpaceshipSelection}
@@ -157,7 +157,7 @@ function AttackPage({
       return avalancheTestnetTokenIds.map((element, index) => {
         return (
           <SpaceshipEnnemy
-            chainId={chainId}
+            chainId={nameToIdMapping[galaxy]}
             setEnnemySpaceshipSelection={setEnnemySpaceshipSelection}
             setEnnemySpaceshipDetails={setEnnemySpaceshipDetails}
             ennemySpaceshipSelection={ennemySpaceshipSelection}
@@ -170,7 +170,7 @@ function AttackPage({
       return binanceTestnetTokenIds.map((element, index) => {
         return (
           <SpaceshipEnnemy
-            chainId={chainId}
+            chainId={nameToIdMapping[galaxy]}
             setEnnemySpaceshipSelection={setEnnemySpaceshipSelection}
             setEnnemySpaceshipDetails={setEnnemySpaceshipDetails}
             ennemySpaceshipSelection={ennemySpaceshipSelection}
@@ -183,7 +183,7 @@ function AttackPage({
       return rinkebyTokenIds.map((element, index) => {
         return (
           <SpaceshipEnnemy
-            chainId={chainId}
+            chainId={nameToIdMapping[galaxy]}
             setEnnemySpaceshipSelection={setEnnemySpaceshipSelection}
             setEnnemySpaceshipDetails={setEnnemySpaceshipDetails}
             ennemySpaceshipSelection={ennemySpaceshipSelection}
@@ -196,7 +196,7 @@ function AttackPage({
       return mumbaiTokenIds.map((element, index) => {
         return (
           <SpaceshipEnnemy
-            chainId={chainId}
+            chainId={nameToIdMapping[galaxy]}
             setEnnemySpaceshipSelection={setEnnemySpaceshipSelection}
             setEnnemySpaceshipDetails={setEnnemySpaceshipDetails}
             ennemySpaceshipSelection={ennemySpaceshipSelection}

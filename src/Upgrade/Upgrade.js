@@ -38,8 +38,6 @@ function Upgrade({
     ],
   });
 
-  console.log([quantity, itemMapping[itemSelection], userSpaceshipSelection]);
-
   const getUserSpaceships = () => {
     if (chainId.id === 4002) {
       return fantomTokenIdsOfUser.map((element, index) => {

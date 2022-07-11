@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function SpaceshipEnnemy({
-  chainId = { id: 4 },
+  chainId = 4,
   details,
   setEnnemySpaceshipSelection,
   ennemySpaceshipSelection,
@@ -13,12 +13,12 @@ function SpaceshipEnnemy({
   useEffect(() => {
     axios
       .get(
-        `https://nft-fleet-server.herokuapp.com/?chainId=${chainId.id}&power=${details.power}`
+        `https://nft-fleet-server.herokuapp.com/?chainId=${chainId}&power=${details.power}`
       )
       .then((result) => {
         setImageUrl(result.data.image);
       });
-  }, []);
+  }, [chainId]);
 
   return (
     <div
