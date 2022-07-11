@@ -36,12 +36,12 @@ function SpaceshipProfile({
       }}
     >
       <img src={imageUrl}></img>
-      <div className="flex flex-row bg-neutral-800">
-        <div className="w-full">id:{details.tokenId}</div>
-        <div className="w-full">{details.power}</div>
-        <div className="w-full">{details.resource}</div>
+      <div className="flex flex-row bg-neutral-800 px-1">
+        <div className="w-full text-sm">ID:{details.tokenId}</div>
+        <div className="w-full text-sm">power:{details.power}</div>
+        {/* <div className="w-full">{details.resource}</div>
         <div className="w-full">{details.missiles}</div>
-        <div className="w-full">{details.shields}</div>
+        <div className="w-full">{details.shields}</div> */}
         {/* <div>{details.staked}</div>
         <div>{details.inBattle}</div> */}
       </div>

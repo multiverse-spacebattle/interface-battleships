@@ -36,13 +36,19 @@ function SpaceshipEnnemy({
       }}
     >
       <img src={imageUrl}></img>
+      <div className="flex flex-row bg-neutral-800 px-1">
+        <div className="w-full text-sm">ID:{details.tokenId}</div>
+        <div className="w-full text-sm">power:{details.power}</div>
+
+        {/* <img src={imageUrl}></img>
       <div>{details.tokenId}</div>
       <div>{details.power}</div>
       <div>{details.resource}</div>
       <div>{details.missiles}</div>
       <div>{details.shields}</div>
       <div>{details.staked}</div>
-      <div>{details.inBattle}</div>
+      <div>{details.inBattle}</div> */}
+      </div>
     </div>
   );
 }

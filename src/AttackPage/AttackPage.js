@@ -274,7 +274,7 @@ function AttackPage({
           <div className="flex flex-row w-full border border-black h-full overflow-x-auto bg-neutral-700">
             {getGalaxySpaceships()}
           </div>
-          <div className="bg-neutral-800">
+          <div className="bg-neutral-800 my-2">
             Your Spaceships on{" "}
             {chainId && chainIdToNameMapping[chainId.network]}. Change your
             network to view your spaceships on other chains.
@@ -290,7 +290,7 @@ function AttackPage({
       </div>
       <div className="flex flex-col w-full border border-black h-96 items-center bg-neutral-800">
         {userSpaceshipSelection && ennemySpaceshipSelection ? (
-          <div className="">Proceed with the attack?</div>
+          <div className="mt-5">Proceed with the attack?</div>
         ) : (
           <div className="m-5">Select your fleet and an ennemy fleet</div>
         )}
