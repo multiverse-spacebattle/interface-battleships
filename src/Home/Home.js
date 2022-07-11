@@ -54,9 +54,10 @@ function Home({
 
   return (
     <div className="flex flex-col w-full items-center bg-neutral-800 h-full">
-      <div className="text-2xl text-amber-600">
+      <div className="text-2xl text-amber-600 mt-10">
         Welcome to the first cross-chain battle royal game!
       </div>
+      <img className="w-48 h-48" src="./level3.png"></img>
       {chainId === undefined ? (
         <div className="flex flex-col w-full items-center text-white">
           Please connect to your wallet to get started!
@@ -88,15 +89,18 @@ function Home({
             Fantom: {userFantomSpaceships} {"spaceship(s)"}
           </div>
           <div className="mt-5">
-            You can mint spaceships across any network. Your NFT will be minted
-            on {chainIdToNameMapping[chainId.network]}.
+            Your NFT will be minted on{" "}
+            <span className="text-amber-400">
+              {chainIdToNameMapping[chainId.network]}
+            </span>
+            .
           </div>
-          <div>
+          <div className="mb-5">
             If you wish to mint on a different chain, please switch your
             network.
           </div>
           <button
-            className="bg-transparent hover:bg-amber-700 text-amber-700 font-semibold hover:text-white py-2 px-4 border border-amber-700 hover:border-transparent rounded"
+            className="bg-transparent hover:bg-amber-700 text-amber-700 font-semibold hover:text-white py-2 px-4 border border-amber-700 hover:border-transparent rounded mb-10"
             onClick={() => write()}
           >
             Mint

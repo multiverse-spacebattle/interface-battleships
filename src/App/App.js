@@ -166,7 +166,7 @@ function App() {
               id="dropdownMenuButton1"
               data-bs-toggle="dropdown"
               aria-expanded="false"
-              className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+              className="bg-transparent hover:bg-amber-700 text-amber-700 font-semibold hover:text-white py-2 px-4 border border-amber-700 hover:border-transparent rounded"
             >
               Network:{" "}
               {chain && chainIdToNameMapping[chain.network]
@@ -238,7 +238,7 @@ function App() {
         </div>
         {address ? (
           <>
-            <p className="text-white text-sm">
+            <p className="text-white text-sm mb-5 ">
               Connected: {address.slice(0, 5) + "..." + address.slice(-5)}
             </p>
           </>
