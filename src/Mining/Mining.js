@@ -105,20 +105,20 @@ function Mining({
     }
   };
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full bg-neutral-800">
       <div className="flex flex-row">
-        <div className="w-3/4 h-96 border border-black">
+        <div className="w-3/4 border border-black">
           <img src="./illustration 3.png"></img>
         </div>
-        <div className="w-1/4 h-96 border border-black">
+        <div className="w-1/4 border border-black bg-neutral-800">
           <img src={chainIdToImageMapping[chainId.network]}></img>
           Galaxy: {chainIdToNameMapping[chainId.network]}
         </div>
       </div>
-      <div className="w-full h-12 border border-black">
+      <div className="w-full h-12 border border-black bg-neutral-800">
         Select your Spaceship:
       </div>
-      <div className="flex flex-col w-full border border-black h-40 flex-wrap overflow-x-auto">
+      <div className="flex flex-col w-full border border-black h-40 flex-wrap overflow-x-auto bg-neutral-800">
         {chainId && getUserSpaceships()}
       </div>
       <div className="w-full flex flex-row justify-center">
