@@ -281,7 +281,7 @@ function AttackPage({
             </span>
             . Change your network to view your spaceships on other chains.
           </div>
-          <div className="flex flex-col w-full border border-black h-96 overflow-x-auto bg-neutral-500">
+          <div className="flex flex-row w-full border border-black h-96 overflow-x-auto bg-neutral-500">
             {chainId && getUserSpaceships()}
           </div>
         </div>
