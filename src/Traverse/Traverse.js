@@ -47,13 +47,13 @@ function Traverse({
   //   getPortalFees.data();
   // }, []);
 
-  console.log([
-    chainIdToBridgeIdMapping[portal],
-    chainIdToOmnichainNFTContract[portal],
-    userSpaceshipSelection,
-    0,
-  ]);
-  console.log(getPortalFees);
+  // console.log([
+  //   chainIdToBridgeIdMapping[portal],
+  //   chainIdToOmnichainNFTContract[portal],
+  //   userSpaceshipSelection,
+  //   0,
+  // ]);
+  // console.log(getPortalFees);
 
   const getUserSpaceships = () => {
     if (chainId.id === 4002) {

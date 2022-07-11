@@ -63,12 +63,12 @@ function AttackPage({
     ],
   });
 
-  console.log([
-    chainIdToBridgeIdMapping[nameToIdMapping[galaxy]],
-    chainIdToOmnichainNFTContract[nameToIdMapping[galaxy]],
-    userSpaceshipSelection,
-    ennemySpaceshipDetails.tokenId,
-  ]);
+  // console.log([
+  //   chainIdToBridgeIdMapping[nameToIdMapping[galaxy]],
+  //   chainIdToOmnichainNFTContract[nameToIdMapping[galaxy]],
+  //   userSpaceshipSelection,
+  //   ennemySpaceshipDetails.tokenId,
+  // ]);
 
   const getUserSpaceships = () => {
     if (chainId.id === 4002) {

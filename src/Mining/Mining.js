@@ -10,7 +10,7 @@ import OmniChainNFT from "../Utils/OmniChainNFT.json";
 import chainIdToOmnichainNFTContract from "../Utils/chainIdToOmnichainNFTContract";
 
 function Mining({
-  chainId = { network: 4 },
+  chainId = { id: 4, network: 4 },
   fantomTokenIdsOfUser = [],
   avalancheTestnetTokenIdsOfUser = [],
   rinkebyTokenIdsOfUser = [],

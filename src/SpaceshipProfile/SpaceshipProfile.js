@@ -2,14 +2,16 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function SpaceshipProfile({
-  chainId = { id: 4 },
+  chainId = { id: 97 },
   details,
   setUserSpaceshipSelection,
   userSpaceshipSelection,
   setUserSpaceshipDetails,
 }) {
   const [imageUrl, setImageUrl] = useState("");
-
+  console.log(
+    `https://nft-fleet-server.herokuapp.com/?chainId=${chainId.id}&power=${details.power}`
+  );
   useEffect(() => {
     axios
       .get(

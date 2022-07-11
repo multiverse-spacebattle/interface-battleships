@@ -8,7 +8,7 @@ import chainIdToOmnichainNFTContract from "../Utils/chainIdToOmnichainNFTContrac
 import chainIdToNameMapping from "../Utils/chainIdToNameMapping";
 
 function Upgrade({
-  chainId = { network: 4 },
+  chainId = { network: 4, id: 4 },
   fantomTokenIdsOfUser = [],
   avalancheTestnetTokenIdsOfUser = [],
   rinkebyTokenIdsOfUser = [],
@@ -37,6 +37,7 @@ function Upgrade({
       userSpaceshipSelection,
     ],
   });
+  console.log(chainId);
 
   const getUserSpaceships = () => {
     if (chainId.id === 4002) {
