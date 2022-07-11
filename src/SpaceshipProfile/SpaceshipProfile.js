@@ -18,7 +18,7 @@ function SpaceshipProfile({
       .then((result) => {
         setImageUrl(result.data.image);
       });
-  }, []);
+  }, [chainId]);
 
   return (
     <div
