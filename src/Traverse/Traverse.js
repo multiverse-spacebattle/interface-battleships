@@ -112,7 +112,7 @@ function Traverse({
         </span>
         . Change your network to view your spaceships on other chains.
       </div>
-      <div className="flex flex-col w-full border border-black bg-neutral-500 h-40 flex-wrap overflow-x-auto">
+      <div className="flex flex-row w-full border border-black bg-neutral-500 h-40 overflow-x-auto">
         {chainId && getUserSpaceships()}
       </div>
       <div className="w-full h-full mb-5">

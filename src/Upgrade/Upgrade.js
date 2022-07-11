@@ -232,7 +232,7 @@ function Upgrade({
         </span>
         . Change your network to view your spaceships on other chains.
       </div>
-      <div className="flex flex-col w-full border border-black h-40 flex-wrap overflow-x-auto bg-neutral-500">
+      <div className="flex flex-row w-full border border-black h-40 overflow-x-auto bg-neutral-500">
         {chainId && getUserSpaceships()}
       </div>
       <div className="flex flex-row w-full h-24 border border-black justify-center items-center">
