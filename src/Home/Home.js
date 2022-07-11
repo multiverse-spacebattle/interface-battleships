@@ -96,7 +96,7 @@ function Home({
             network.
           </div>
           <button
-            className="my-5 border border-black w-20"
+            className="bg-transparent hover:bg-amber-700 text-amber-700 font-semibold hover:text-white py-2 px-4 border border-amber-700 hover:border-transparent rounded"
             onClick={() => write()}
           >
             Mint

@@ -201,9 +201,9 @@ function Upgrade({
       <div className="flex flex-col w-full border border-black h-40 flex-wrap overflow-x-auto">
         {chainId && getUserSpaceships()}
       </div>
-      <div className="w-full h-24 border border-black">
+      <div className="flex flex-row w-full h-24 border border-black justify-center items-center">
         <button
-          className="border border-black"
+          className="bg-transparent hover:bg-amber-700 text-amber-700 font-semibold hover:text-white py-2 px-4 border border-amber-700 hover:border-transparent rounded"
           onClick={() => buyStuff.write()}
         >
           Purchase

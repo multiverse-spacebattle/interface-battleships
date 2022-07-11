@@ -126,20 +126,23 @@ function Mining({
           <div>
             {" "}
             <button
-              className="border border-black w-20"
+              className="bg-transparent hover:bg-amber-700 text-amber-700 font-semibold hover:text-white py-2 px-4 border border-amber-700 hover:border-transparent rounded"
               onClick={() => claim.write()}
             >
               Claim
             </button>
             <button
-              className="border border-black w-20"
+              className="bg-transparent hover:bg-amber-700 text-amber-700 font-semibold hover:text-white py-2 px-4 border border-amber-700 hover:border-transparent rounded"
               onClick={() => unstake.write()}
             >
               Unstake
             </button>
           </div>
         ) : (
-          <button className="border border-black w-20" onClick={() => write()}>
+          <button
+            className="bg-transparent hover:bg-amber-700 text-amber-700 font-semibold hover:text-white py-2 px-4 border border-amber-700 hover:border-transparent rounded"
+            onClick={() => write()}
+          >
             Stake
           </button>
         )}

@@ -21,8 +21,8 @@ function SpaceshipEnnemy({
     <div
       className={
         ennemySpaceshipSelection === details.tokenId
-          ? "flex flex-col w-full border border-4 border-blue-500 w-40 h-40 m-5 cursor-pointer"
-          : "flex flex-col w-full border border-black w-40 h-40 m-5 cursor-pointer"
+          ? "flex flex-col w-full border border-4 border-blue-500 w-32 h-32 m-5 cursor-pointer"
+          : "flex flex-col w-full border border-black w-32 h-32 m-5 cursor-pointer"
       }
       onClick={() => {
         if (details.tokenId === ennemySpaceshipSelection) {

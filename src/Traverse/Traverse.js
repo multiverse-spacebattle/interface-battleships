@@ -178,9 +178,9 @@ function Traverse({
           </div>
         </div>
       </div>
-      <div className="w-full flex flex-row justify-center">
+      <div className="flex flex-row w-full justify-center items-center">
         <button
-          className="border border-black w-20"
+          className="bg-transparent hover:bg-amber-700 text-amber-700 font-semibold hover:text-white py-2 px-4 border border-amber-700 hover:border-transparent rounded"
           onClick={() => traverse.write()}
         >
           Traverse
